@@ -18,7 +18,7 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(pet_params)
     @food.donor = current_user.donor
-    if @food.save
+      if @food.save
       redirect_to food_path(@food)
     end
   end
