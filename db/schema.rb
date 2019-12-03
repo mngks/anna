@@ -10,10 +10,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_110208) do
+ActiveRecord::Schema.define(version: 2019_12_02_150335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.boolean "confirmed"
+    t.bigint "user_id"
+    t.bigint "food_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_donations_on_food_id"
+    t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "donors", force: :cascade do |t|
+    t.string "full_name"
+    t.string "username"
+    t.string "bio"
+    t.string "pickup_time"
+    t.string "time"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_donors_on_user_id"
+  end
+
+  create_table "food_categories", force: :cascade do |t|
+    t.bigint "food_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_food_categories_on_category_id"
+    t.index ["food_id"], name: "index_food_categories_on_food_id"
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.date "purchase_date"
+    t.bigint "donor_id"
+    t.string "location"
+    t.string "latitude"
+    t.string "longtitude"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["donor_id"], name: "index_foods_on_donor_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "donation_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["donation_id"], name: "index_messages_on_donation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "rate"
+    t.bigint "donation_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["donation_id"], name: "index_ratings_on_donation_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +98,14 @@ ActiveRecord::Schema.define(version: 2019_12_02_110208) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "donations", "foods"
+  add_foreign_key "donations", "users"
+  add_foreign_key "donors", "users"
+  add_foreign_key "food_categories", "categories"
+  add_foreign_key "food_categories", "foods"
+  add_foreign_key "foods", "donors"
+  add_foreign_key "messages", "donations"
+  add_foreign_key "messages", "users"
+  add_foreign_key "ratings", "donations"
+  add_foreign_key "ratings", "users"
 end
