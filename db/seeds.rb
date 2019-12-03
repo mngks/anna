@@ -77,14 +77,14 @@ Food.create!(
   name: "Ripe Banana (4 large ones)",
   photo: "",
   description: "Will be good for baking!",
-  purchase_date: Date.new(2018,8,18)
+  purchase_date: Date.new(2018,8,18),
   location: "360, #08-02 Orchard Rd, International Building, 238869",
-  latitude: "33.976059",
-  longtitude: "-116.955040",
-  donor: Donor.first,
-  category: Fruits
+  latitude: 33.976059,
+  longitude: -116.955040,
+  donor: Donor.first
 )
 
+FoodCategory.create(food: Food.last, category: Category.find_by(name: "Fruits"))
 
 puts 'create foods'
 Food.create!(
@@ -93,12 +93,12 @@ Food.create!(
   description: "Baked too much cake. Extra eggs to give away.",
   purchase_date: Date.new(2018,8,21),
   location: "14 Scotts Rd, Singapore 228213",
-  latitude: "1.307180",
-  longtitude: "103.833809",
-  donor: Donor.first,
-  category: Dairy
+  latitude: 1.307180,
+  longitude: 103.833809,
+  donor: Donor.first
 )
 
+FoodCategory.create(food: Food.last, category: Category.find_by(name: "Dairy"))
 
 puts 'create foods'
 Food.create!(
@@ -107,8 +107,10 @@ Food.create!(
   description: "I dont like ketchup. Giving away.",
   purchase_date: Date.new(2018,8,30),
   location: "313 Orchard Rd, Singapore 238895",
-  latitude: "1.301040",
-  longtitude: "103.838379",
-  donor: Donor.first,
-  category: Canned foods
-)
+  latitude: 1.301040,
+  longitude: 103.838379,
+  donor: Donor.first
+  )
+
+FoodCategory.create(food: Food.last, category: Category.find_by(name: "Canned foods"))
+

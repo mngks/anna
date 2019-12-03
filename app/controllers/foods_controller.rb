@@ -3,7 +3,13 @@ class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
 
   def index
-    @foods = Food.all
+    @foods = Food.geocoded # returns food with coordinates
+    @markers = @foods.map do |food|
+      {
+        lat: food.latitude,
+        lng: food.longitude
+      }
+    end
   end
 
   def show
