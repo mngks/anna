@@ -17,7 +17,7 @@ User.create(
   email: 'user1@gmail.com',
   password: 'user123',
   password_confirmation: 'user123',
-  username: 'user1',
+  username: 'Mandy',
   remote_photo_url: "https://images.unsplash.com/photo-1525450824786-227cbef70703?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600",
 )
 
@@ -63,7 +63,7 @@ canned_foods = Category.create!(
 puts "create donor profile for first user"
 Donor.create(
   full_name: 'Mandy Tan',
-  bio: 'ipsem lorem',
+  bio: 'I love sharing food as the best way to anyone’s heart is through their stomach (;',
   pickup_time: '6pm',
   user: User.first
 )
@@ -159,3 +159,28 @@ Food.create!(
   categories: [dairy]
 )
 
+puts "create donation"
+Donation.create(
+  user: User.first,
+  food: Food.first
+  )
+
+Donation.create(
+  user: User.first,
+  food: Food.last
+  )
+
+puts "create reviews of avg 4 for user.first"
+Rating.create(
+  rate: 5,
+  review: "Mandy was so kind and amazing",
+  donation: Donation.first,
+  user: User.first
+  )
+
+Rating.create(
+  rate: 3,
+  review: "Mandy was late and wasn't very responsive",
+  donation: Donation.last,
+  user: User.first
+  )
