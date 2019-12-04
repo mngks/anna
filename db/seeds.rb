@@ -8,7 +8,7 @@
 
 puts "Dropping the seeds"
 User.destroy_all if Rails.env.development? || Rails.env.test?
-
+Category.destroy_all if Rails.env.development? || Rails.env.test?
 
 puts "Creating the seeds"
 
@@ -22,18 +22,8 @@ User.create(
 
 User.create(
   email: 'user2@gmail.com',
-  password: 'user123' ,
+  password: 'user123',
   password_confirmation: 'user123'
-)
-
-
-puts "create donor profile for first user"
-Donor.create(
-  full_name: 'Mandy Tan',
-  username: 'Mandy90',
-  bio: 'ipsem lorem',
-  pickup_time: 'Collection after 6pm',
-  user: User.first
 )
 
 
@@ -57,7 +47,7 @@ Category.create!(
 
 puts 'create categories'
 Category.create!(
-  name: 'Meats'
+  name: 'Poultry'
 )
 
 
@@ -68,19 +58,27 @@ Category.create!(
 
 puts 'create categories'
 Category.create!(
-  name: 'Canned foods'
+  name: 'Canned Foods'
 )
 
+puts "create donor profile for first user"
+Donor.create(
+  full_name: 'Mandy Tan',
+  username: 'Mandy90',
+  bio: 'ipsem lorem',
+  pickup_time: '6pm',
+  user: User.first
+)
 
 puts 'create foods'
 Food.create!(
   name: "Ripe Banana (4 large ones)",
-  photo: "",
+  remote_photo_url: "https://images.unsplash.com/photo-1571141380069-521a19e0576c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
   description: "Will be good for baking!",
   purchase_date: Date.new(2018,8,18),
   location: "360, #08-02 Orchard Rd, International Building, 238869",
-  latitude: 33.976059,
-  longitude: -116.955040,
+  latitude: 1.2979,
+  longitude: 103.8314,
   donor: Donor.first
 )
 
@@ -89,12 +87,12 @@ FoodCategory.create(food: Food.last, category: Category.find_by(name: "Fruits"))
 puts 'create foods'
 Food.create!(
   name: "Carton of eggs",
-  photo: "",
+  remote_photo_url: "https://images.unsplash.com/photo-1556910116-e220f7127371?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
   description: "Baked too much cake. Extra eggs to give away.",
   purchase_date: Date.new(2018,8,21),
   location: "14 Scotts Rd, Singapore 228213",
-  latitude: 1.307180,
-  longitude: 103.833809,
+  latitude: 1.3040,
+  longitude: 103.8320,
   donor: Donor.first
 )
 
@@ -103,8 +101,8 @@ FoodCategory.create(food: Food.last, category: Category.find_by(name: "Dairy"))
 puts 'create foods'
 Food.create!(
   name: "Heinz Tomato Ketchup",
-  photo: "",
-  description: "I dont like ketchup. Giving away.",
+  remote_photo_url: "https://images.unsplash.com/flagged/photo-1569231290508-8105e6e9620c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+  description: "Free gift, but I don't like ketchup.",
   purchase_date: Date.new(2018,8,30),
   location: "313 Orchard Rd, Singapore 238895",
   latitude: 1.301040,
@@ -112,5 +110,5 @@ Food.create!(
   donor: Donor.first
   )
 
-FoodCategory.create(food: Food.last, category: Category.find_by(name: "Canned foods"))
+FoodCategory.create(food: Food.last, category: Category.find_by(name: "Canned Foods"))
 
