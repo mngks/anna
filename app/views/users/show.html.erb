@@ -1,3 +1,17 @@
-<%= @user.username %>
+<div class="d-flex align-items-center flex-row mb-3">
+    <div class="p-2 ">
+        <img src="<%= cl_image_path @user.photo, height: 300, width: 300, crop: :fill %>" class="avatar-large">
+    </div>
+    <div class="p-2">
+        <h2> <%= @user.username  %> </h2>
+        <div class="ratings">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+    </div>
+</div>
 
-<img src="<%= cl_image_path @user.photo, height: 300, width: 300, crop: :fill %>" class="avatar-large">
+<%= @user.donor.bio %>
