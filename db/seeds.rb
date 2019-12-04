@@ -68,9 +68,11 @@ Category.create!(
 puts "create donor profile for first user"
 Donor.create(
   full_name: 'Mandy Tan',
-  bio: 'ipsem lorem',
+  bio: 'I love sharing food as the best way to anyone’s heart is through their stomach (;',
   pickup_time: '6pm',
   user: User.first
+  rate:
+
 )
 
 puts 'create foods'
