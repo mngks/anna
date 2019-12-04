@@ -17,15 +17,17 @@ User.create(
   email: 'user1@gmail.com',
   password: 'user123',
   password_confirmation: 'user123',
-  username: 'user1'
+  username: 'user1',
+  remote_photo_url: "https://images.unsplash.com/photo-1525450824786-227cbef70703?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600",
 )
 
 
 User.create(
   email: 'user2@gmail.com',
   password: 'user123',
-  password_confirmation: 'user123'
-  username: 'user2'
+  password_confirmation: 'user123',
+  username: 'user2',
+  remote_photo_url: "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1581&q=80"
 )
 
 
