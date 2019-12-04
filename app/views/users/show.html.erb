@@ -18,12 +18,13 @@
     </ul>
     <div class="card-vert-grid">
         <% @user.foods.each do |food| %>
+
         <div class="card-vert">
             <%= cl_image_tag food.photo, height: 300, width: 400, crop: :fill %>
             <div class="card-vert-infos">
                 <div>
                     <h2>
-                        <%= food.name %>
+                        <%= link_to "#{food.name}", food_path(food) %>
                     </h2>
                     <p>
                         <div class="ratings">
