@@ -5,48 +5,46 @@
 </div>
 
 <div class="container">
-<div class="row justify-content-center">
-  <div class="cards-scrolling-wrapper">
-    <% @categories.each do |category| %>
+  <div class="row justify-content-center">
+    <div class="cards-scrolling-wrapper">
+      <% @categories.each do |category| %>
       <%= link_to root_path(category_name: category.name) do%>
       <div class="card-category" style="color: white; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
         <%= category.name %>
       </div>
       <% end %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="container-header">
-  <h2>Listings near you</h2>
-   </div>
+  <div class="container">
+    <div class="container-header">
+      <h2>Listings near you</h2>
+    </div>
     <% @foods.each do |food| %>
     <%= link_to food_path(food) do%>
-  <div class="card-hori">
-    <div class="card-photo">
-    <%= cl_image_tag food.photo%>
-    </div>
+    <div class="card-hori">
+      <div class="card-photo">
+        <%= cl_image_tag food.photo%>
+      </div>
 
-    <div class="card-content">
-      <h2><%= food.name %></h2>
-      <p><%= food.donor.full_name %></p>
-    </div>
+      <div class="card-content">
+        <h2><%= food.name %></h2>
+        <p><%= food.donor.full_name %></p>
+      </div>
 
-    <div class="card-avatar">
-    </div>
+      <div class="card-avatar">
+      </div>
 
-    <div class="ratings">
-    </div>
+      <div class="ratings">
+      </div>
 
-     <div class="distance">
+      <div class="distance">
+      </div>
     </div>
-
-    </div>
-
-  <% end %>
-  <% end %>
- </div>
+    <% end %>
+    <% end %>
+  </div>
 </div>
 </div>
 
@@ -55,6 +53,6 @@
     <a href="#"><i class="fab fa-instagram"></i></a>
     <a href="#"><i class="fab fa-facebook"></i></a>
     <div class="footer-copyright">
-    <p><i class="fas fa-heart"></i> Save Anna.</p>
+      <p><i class="fas fa-heart"></i> Save Anna.</p>
+    </div>
   </div>
-</div>
