@@ -1,5 +1,5 @@
 class DonationsController < ApplicationController
-    def index
+  def index
     @donations = current_user.donor.donations
   end
 
@@ -12,5 +12,4 @@ class DonationsController < ApplicationController
       redirect_to food_donation_path(@food, @donation)
     end
   end
-end
 end
