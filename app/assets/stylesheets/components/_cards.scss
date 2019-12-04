@@ -14,7 +14,7 @@
   }
 }
 
-.card-product {
+.card-hori {
   overflow: hidden;
   height: 100px;
   background: white;
@@ -24,19 +24,19 @@
   margin: 10px;
 }
 
-.card-product img {
+.card-hori img {
   height: 100%;
   width: 120px;
   object-fit: cover;
   border-radius: .3em;
 }
 
-.card-product h2 {
+.card-hori h2 {
   font-size: 15px;
   font-weight: bold;
 }
 
-.card-product p {
+.card-hori p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -48,7 +48,7 @@
   margin-left: 15px;
 }
 
-.card-product .card-product-infos {
+.card-hori .card-hori-infos {
   padding: 16px;
 }
 
