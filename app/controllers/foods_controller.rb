@@ -9,6 +9,16 @@ class FoodsController < ApplicationController
   def show
     @donation = @food.donations.build
     @donation.user = current_user
+
+    @foods = Food.geocoded # returns food with coordinates
+    
+    @markers = @foods.map do |food|
+      {
+        lat: food.latitude,
+        lng: food.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { food: food })
+      }
+    end
   end
 
   def new
