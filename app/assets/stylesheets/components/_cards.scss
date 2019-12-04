@@ -5,52 +5,18 @@
 
   .card-category {
     display: inline-block;
-    width: 200px;
-    height: 150px;
-    margin: 10px;
+    width: 160px;
+    height: 120px;
+    margin: 5px;
     border-radius: .5em;
     text-align: center;
+    line-height: 120px;
   }
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
 }
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 100px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -78,6 +44,10 @@
   margin-top: 8px;
 }
 
+.card-content {
+  margin-left: 15px;
+}
+
 .card-product .card-product-infos {
   padding: 16px;
 }
@@ -85,4 +55,8 @@
 .card-avatar {
   width: 50%;
   border-radius: 50%;
+}
+
+.container-header {
+  margin: 20px;
 }

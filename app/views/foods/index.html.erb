@@ -30,16 +30,24 @@
 </div>
 
 <div class="container">
+  <div class="container-header">
   <h2>Listings near you</h2>
+   </div>
     <% @foods.each do |food| %>
-   <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-title">
-      <h2><%= food.name %></h2>
+  <div class="card-product">
+    <div class="card-photo">
+    <%= cl_image_tag food.photo%>
     </div>
-      <div class="card-avatar">
-     <%= image_tag "" %>
-      </div>
+    <div class="card-content">
+      <h2><%= food.name %></h2>
+      <p><%= food.donor.full_name %></p>
+    </div>
+    <div class="card-avatar">
+    </div>
+    <div class="ratings">
+    </div>
+     <div class="distance">
+    </div>
     </div>
   <% end %>
  </div>

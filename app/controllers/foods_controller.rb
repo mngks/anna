@@ -11,7 +11,7 @@ class FoodsController < ApplicationController
     @donation.user = current_user
 
     @foods = Food.geocoded # returns food with coordinates
-    
+
     @markers = @foods.map do |food|
       {
         lat: food.latitude,
@@ -54,6 +54,6 @@ class FoodsController < ApplicationController
   end
 
   def food_params
-    params.require(:food).permit(:name, :photo, :purchase_date, :category, :location)
+    params.require(:food).permit(:name, :remote_photo_url, :purchase_date, :category, :location)
   end
 end
