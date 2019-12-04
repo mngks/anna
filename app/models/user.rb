@@ -7,7 +7,20 @@ class User < ApplicationRecord
   has_one :donor, dependent: :destroy
   has_many :foods, through: :donor
 
-  has_many :donations
+  has_many :donations, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   mount_uploader :photo, PhotoUploader
+
+  def avg_rating
+    total_rating = 0
+    ratings.each do |rating|
+      total_rating += rating.rate
+    end
+    (total_rating / ratings.count).to_i
+  end
+
+  def blank_stars
+    5 - avg_rating.to_i
+  end
 end
