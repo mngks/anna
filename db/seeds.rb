@@ -24,7 +24,7 @@ User.create(
 User.create(
   email: 'user2@gmail.com',
   password: 'user123',
-  password_confirmation: 'user123'
+  password_confirmation: 'user123',
   username: 'user2'
 )
 
