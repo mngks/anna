@@ -60,3 +60,41 @@
 .container-header {
   margin: 20px;
 }
+
+
+.card-vert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.card-vert {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-vert > img {
+  height: 136px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.card-vert h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-vert p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-vert a {
+  text-decoration: none;
+  color: #414141;
+}
+
