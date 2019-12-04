@@ -32,36 +32,31 @@ User.create(
 
 
 puts 'create categories'
-Category.create!(
+fruits = Category.create!(
   name: 'Fruits'
 )
 
 
-puts 'create categories'
-Category.create!(
+dairy = Category.create!(
   name: 'Dairy'
 )
 
 
-puts 'create categories'
-Category.create!(
+grains = Category.create!(
   name: 'Grains'
 )
 
 
-puts 'create categories'
-Category.create!(
+poultry = Category.create!(
   name: 'Poultry'
 )
 
 
-puts 'create categories'
-Category.create!(
+vegetables = Category.create!(
   name: 'Vegetables'
 )
 
-puts 'create categories'
-Category.create!(
+canned_foods = Category.create!(
   name: 'Canned Foods'
 )
 
@@ -82,12 +77,11 @@ Food.create!(
   location: "360, #08-02 Orchard Rd, International Building, 238869",
   latitude: 1.2979,
   longitude: 103.8314,
-  donor: Donor.first
+  donor: Donor.first,
+  categories: [fruits]
 )
 
-FoodCategory.create(food: Food.last, category: Category.find_by(name: "Fruits"))
 
-puts 'create foods'
 Food.create!(
   name: "Carton of eggs",
   remote_photo_url: "https://images.unsplash.com/photo-1556910116-e220f7127371?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
@@ -96,12 +90,11 @@ Food.create!(
   location: "14 Scotts Rd, Singapore 228213",
   latitude: 1.3040,
   longitude: 103.8320,
-  donor: Donor.first
+  donor: Donor.first,
+  categories: [dairy]
 )
 
-FoodCategory.create(food: Food.last, category: Category.find_by(name: "Dairy"))
 
-puts 'create foods'
 Food.create!(
   name: "Heinz Tomato Ketchup",
   remote_photo_url: "https://images.unsplash.com/flagged/photo-1569231290508-8105e6e9620c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
@@ -110,8 +103,59 @@ Food.create!(
   location: "313 Orchard Rd, Singapore 238895",
   latitude: 1.301040,
   longitude: 103.838379,
-  donor: Donor.first
-  )
+  donor: Donor.first,
+  categories: [canned_foods]
+)
 
-FoodCategory.create(food: Food.last, category: Category.find_by(name: "Canned Foods"))
+
+Food.create!(
+  name: "A bunch of 6 apples",
+  remote_photo_url: "https://images.unsplash.com/flagged/photo-1569231290508-8105e6e9620c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+  description: "6 apples from NTUC",
+  purchase_date: Date.new(2018,8,15),
+  location: "313 Orchard Rd, Singapore 238895",
+  latitude: 1.301040,
+  longitude: 103.838379,
+  donor: Donor.first,
+  categories: [fruits]
+)
+
+
+Food.create!(
+  name: "A bunch of 4 oranges",
+  remote_photo_url: "https://images.unsplash.com/flagged/photo-1569231290508-8105e6e9620c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+  description: "4 oranges from NTUC",
+  purchase_date: Date.new(2018,8,15),
+  location: "313 Orchard Rd, Singapore 238895",
+  latitude: 1.301040,
+  longitude: 103.838379,
+  donor: Donor.first,
+  categories: [fruits]
+)
+
+
+Food.create!(
+  name: "A carton of milk",
+  remote_photo_url: "https://images.unsplash.com/photo-1556910116-e220f7127371?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+  description: "A carton of milk.",
+  purchase_date: Date.new(2018,8,21),
+  location: "14 Scotts Rd, Singapore 228213",
+  latitude: 1.3040,
+  longitude: 103.8320,
+  donor: Donor.first,
+  categories: [dairy]
+)
+
+
+Food.create!(
+  name: "A tub of yogurt",
+  remote_photo_url: "https://images.unsplash.com/photo-1556910116-e220f7127371?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+  description: "A tub of yogurt.",
+  purchase_date: Date.new(2018,8,21),
+  location: "14 Scotts Rd, Singapore 228213",
+  latitude: 1.3040,
+  longitude: 103.8320,
+  donor: Donor.first,
+  categories: [dairy]
+)
 
