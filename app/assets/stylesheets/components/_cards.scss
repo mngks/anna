@@ -1,0 +1,62 @@
+.cards-scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  .card-category {
+    display: inline-block;
+    width: 160px;
+    height: 120px;
+    margin: 5px;
+    border-radius: .5em;
+    text-align: center;
+    line-height: 120px;
+  }
+}
+
+.card-product {
+  overflow: hidden;
+  height: 100px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  border-radius: .3em;
+}
+
+.card-product h2 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-content {
+  margin-left: 15px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.card-avatar {
+  width: 50%;
+  border-radius: 50%;
+}
+
+.container-header {
+  margin: 20px;
+}

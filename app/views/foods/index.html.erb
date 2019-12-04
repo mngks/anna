@@ -1,0 +1,66 @@
+  <div class="container">
+    <h1><strong>Save Anna</strong></h1>
+    <p>Give Food a Second Life.</p>
+  </div>
+</div>
+
+<div class="container">
+<div class="row justify-content-center">
+  <div class="cards-scrolling-wrapper">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      Fruits
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+      Vegetables
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+      Grains
+    </div>
+
+     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+      Meats
+    </div>
+
+     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+      Canned Foods
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-header">
+  <h2>Listings near you</h2>
+   </div>
+    <% @foods.each do |food| %>
+  <div class="card-product">
+    <div class="card-photo">
+    <%= cl_image_tag food.photo%>
+    </div>
+    <div class="card-content">
+      <h2><%= food.name %></h2>
+      <p><%= food.donor.full_name %></p>
+    </div>
+    <div class="card-avatar">
+    </div>
+    <div class="ratings">
+    </div>
+     <div class="distance">
+    </div>
+    </div>
+  <% end %>
+ </div>
+</div>
+</div>
+
+
+
+<div class="footer text-center">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <div class="footer-copyright">
+    <p><i class="fas fa-heart"></i> Save Anna.</p>
+  </div>
+</div>
