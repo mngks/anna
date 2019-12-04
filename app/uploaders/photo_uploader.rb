@@ -1,5 +1,9 @@
 class PhotoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
+
+  version :thumbnail do
+    cloudinary_transformation width: 150, height: 150, crop: :thumb, gravity: :face
+  end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
