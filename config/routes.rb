@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
     resources :donors, only: [:new, :create]
 
+    resources :messages, only: [:index, :new, :create]
+
 end
