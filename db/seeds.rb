@@ -16,7 +16,8 @@ puts 'create users'
 User.create(
   email: 'user1@gmail.com',
   password: 'user123',
-  password_confirmation: 'user123'
+  password_confirmation: 'user123',
+  username: 'user1'
 )
 
 
@@ -24,6 +25,7 @@ User.create(
   email: 'user2@gmail.com',
   password: 'user123',
   password_confirmation: 'user123'
+  username: 'user2'
 )
 
 
@@ -64,7 +66,6 @@ Category.create!(
 puts "create donor profile for first user"
 Donor.create(
   full_name: 'Mandy Tan',
-  username: 'Mandy90',
   bio: 'ipsem lorem',
   pickup_time: '6pm',
   user: User.first
