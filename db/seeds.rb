@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Dropping the seeds"
-User.destroy_all
 Rating.destroy_all
+User.destroy_all
 Category.destroy_all
 
 puts "Creating the seeds"
