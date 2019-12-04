@@ -9,6 +9,7 @@
 puts "Dropping the seeds"
 User.destroy_all
 Category.destroy_all
+Rating.destroy_all
 
 puts "Creating the seeds"
 
