@@ -4,6 +4,15 @@ class FoodsController < ApplicationController
 
   def index
     @foods = Food.all
+    @categories = Category.all
+
+    if params[:category_name]
+      # get filter from params[:category_name]
+      # filter by category
+      @foods = @foods.select do |food|
+        food.categories.exists?(name: params[:category_name])
+      end
+    end
   end
 
   def show
