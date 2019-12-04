@@ -64,7 +64,9 @@ puts "create donor profile for first user"
 Donor.create(
   full_name: 'Mandy Tan',
   bio: 'I love sharing food as the best way to anyone’s heart is through their stomach (;',
-  pickup_time: '6pm',
+  pickup_start_time: '6pm',
+  pickup_end_time: '8pm',
+  pickup_days: 'Monday',
   user: User.first
 )
 

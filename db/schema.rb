@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_072919) do
+ActiveRecord::Schema.define(version: 2019_12_04_091839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,9 @@ ActiveRecord::Schema.define(version: 2019_12_04_072919) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "pickup_time"
+    t.string "pickup_days"
+    t.time "pickup_start_time"
+    t.time "pickup_end_time"
     t.index ["user_id"], name: "index_donors_on_user_id"
   end
 

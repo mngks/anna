@@ -35,11 +35,14 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new(pet_params)
+    @food = Food.new(food_params)
     @food.donor = current_user.donor
       if @food.save
       redirect_to food_path(@food)
     end
+    
+    @category = Category.all
+    
   end
 
   def edit
@@ -63,6 +66,6 @@ class FoodsController < ApplicationController
   end
 
   def food_params
-    params.require(:food).permit(:name, :remote_photo_url, :purchase_date, :category, :location)
+    params.require(:food).permit(:name, :photo, :purchase_date, :category, :location)
   end
 end
