@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :foods, through: :donor
 
   has_many :donations
+
+  mount_uploader :photo, PhotoUploader
 end
