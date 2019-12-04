@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Dropping the seeds"
-User.destroy_all if Rails.env.development? || Rails.env.test?
-Category.destroy_all if Rails.env.development? || Rails.env.test?
+User.destroy_all
+Category.destroy_all
 
 puts "Creating the seeds"
 
