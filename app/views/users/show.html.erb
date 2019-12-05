@@ -1,15 +1,18 @@
 <%= render 'shared/user-profile' %>
 <% if @user == current_user %>
 <%= link_to "Edit my profile", edit_user_path(@user), class: "btn btn-primary" %>
+<div class="my_meetings d-flex flex-row mb-3">
+    <div class="upcoming-meetings p-2">Upcoming Meetings</div>
+    <div class="completed-meetings p-2">Completed Meetings</div>
+</div>
 <% end %>
-
 <div>
     <%= @user.bio %>
 </div>
 <div>
     <h4> Where to Meet </h4>
     <p>Preferred Meeting Time:
-      <% if @user.preferred_start_time %>
+        <% if @user.preferred_start_time %>
         <%= @user.preferred_start_time.strftime("%I:%M %p") %> -
         <% else %>
         No preference set yet
@@ -19,7 +22,7 @@
         <% end %>
     </p>
     <p>Preferred Pick-Up Day:
-      <% if @user.pickup_days %>
+        <% if @user.pickup_days %>
         <%= @user.pickup_days %>
         <% else %>
         No preferred days set yet
