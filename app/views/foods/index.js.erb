@@ -8,13 +8,13 @@ var reviews = document.getElementById('reviews');
 reviews.classList.remove("active");
 
 function createNewCard(innerHTML = '') {
-  tab_content.insertAdjacentHTML('beforeend', innerHTML);
+    tab_content.insertAdjacentHTML('beforeend', innerHTML);
 }
 
 <% if @foods.any? %>
-  <% @foods.each do |food| %>
-    createNewCard('<%= j render "card", user: @user %>');
-  <% end %>
+<% @foods.each do |food| %>
+createNewCard('<%= j render "card", user: @user %>');
+<% end %>
 
 <% else %>
 tab_content.insertAdjacentHTML('beforeend', "<p>No listings yet </p>");

@@ -19,6 +19,10 @@ User.create(
   password_confirmation: 'user123',
   username: 'Mandy',
   remote_photo_url: "https://images.unsplash.com/photo-1525450824786-227cbef70703?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600",
+  bio: 'I love sharing food as the best way to anyone’s heart is through their stomach (;',
+  preferred_start_time: '6pm',
+  preferred_end_time: '8pm',
+  pickup_days: 'Monday'
 )
 
 
@@ -63,10 +67,7 @@ canned_foods = Category.create!(
 puts "create donor profile for first user"
 Donor.create(
   full_name: 'Mandy Tan',
-  bio: 'I love sharing food as the best way to anyone’s heart is through their stomach (;',
-  pickup_start_time: '6pm',
-  pickup_end_time: '8pm',
-  pickup_days: 'Monday',
+  contact_number: '91234567',
   user: User.first
 )
 

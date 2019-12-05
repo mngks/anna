@@ -13,4 +13,4 @@ class DonationsController < ApplicationController
     end
   end
 end
-end
+
