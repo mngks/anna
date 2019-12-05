@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_091839) do
+ActiveRecord::Schema.define(version: 2019_12_05_060019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,15 +76,15 @@ ActiveRecord::Schema.define(version: 2019_12_04_091839) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "ratings", force: :cascade do |t|
-    t.integer "rate"
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
     t.bigint "donation_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "review"
-    t.index ["donation_id"], name: "index_ratings_on_donation_id"
-    t.index ["user_id"], name: "index_ratings_on_user_id"
+    t.string "content"
+    t.index ["donation_id"], name: "index_reviews_on_donation_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -109,6 +109,6 @@ ActiveRecord::Schema.define(version: 2019_12_04_091839) do
   add_foreign_key "foods", "donors"
   add_foreign_key "messages", "donations"
   add_foreign_key "messages", "users"
-  add_foreign_key "ratings", "donations"
-  add_foreign_key "ratings", "users"
+  add_foreign_key "reviews", "donations"
+  add_foreign_key "reviews", "users"
 end
