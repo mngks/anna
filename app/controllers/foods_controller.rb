@@ -20,6 +20,7 @@ class FoodsController < ApplicationController
         food.categories.exists?(name: params[:category_name])
       end
     end
+    end
 
   def show
     @donation = @food.donations.build
