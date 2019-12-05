@@ -1,4 +1,5 @@
 <%= render 'shared/user-profile' %>
+<% if @user.donor %>
 <%= @user.donor.bio %>
 <h2> Where to Meet </h2>
 <p>Preferred Pick-Up Time:
@@ -8,9 +9,11 @@
 <p>Preferred Pick-Up Day:
     <%= @user.donor.pickup_days %>
     <p>Preferred Location:</p>
+    <% end %>
     <ul class="list-inline tabs-underlined">
         <li>
-            <a href="#" class="tab-underlined active">Listings</a>
+            <%= link_to "Listings", user_foods_path(@user), remote: true, class: "tab-underlined active" %>
+            <!-- <a href="#" class="tab-underlined active">Listings</a> -->
         </li>
         <li>
             <a href="#" class="tab-underlined">Reviews</a>
@@ -18,7 +21,6 @@
     </ul>
     <div class="card-vert-grid">
         <% @user.foods.each do |food| %>
-
         <div class="card-vert">
             <%= cl_image_tag food.photo, height: 300, width: 400, crop: :fill %>
             <div class="card-vert-infos">
@@ -28,8 +30,14 @@
                     </h2>
                     <p>
                         <div class="ratings">
-                            <i class="far fa-star"></i> <strong> <%= @user.avg_rating.to_f %> </strong> (<%= @user.ratings.count %> reviews)
+                            <% if @user.avg_rating.nil? %>
+                            <i>No reviews yet</i>
+                            <% else %>
+                            <i class="far fa-star"></i> <strong>
+                                <%= @user.avg_rating.to_f %> </strong> (
+                            <%= @user.ratings.count %> reviews)
                         </div>
+                        <% end %>
                         <div class="location"> <i class="fas fa-map-marker-alt"></i> 200m away </div>
                     </p>
                 </div>

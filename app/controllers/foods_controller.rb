@@ -3,7 +3,14 @@ class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
 
   def index
-    @foods = Food.all
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @foods = @user.foods
+    else
+      @foods = Food.all
+    end
+
+
     @categories = Category.all
 
     if params[:category_name]
@@ -13,6 +20,11 @@ class FoodsController < ApplicationController
         food.categories.exists?(name: params[:category_name])
       end
     end
+
+    respond_to do |format|
+        format.html
+        format.js  # <-- will render `app/views/foods/index.js.erb`
+      end
   end
 
   def show
@@ -40,9 +52,9 @@ class FoodsController < ApplicationController
       if @food.save
       redirect_to food_path(@food)
     end
-    
+
     @category = Category.all
-    
+
   end
 
   def edit

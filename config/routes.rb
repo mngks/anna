@@ -4,16 +4,18 @@ Rails.application.routes.draw do
   root to: 'foods#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-      resources :foods, only: [:show, :new, :create] do
-      resources :donations, only: [:create, :show]
-    end
+  resources :foods, only: [:show, :new, :create] do
+    resources :donations, only: [:create, :show]
+  end
 
-    resources :donations, only: [:index]
+  resources :donations, only: [:index]
 
-    resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :foods, only: [:index]
+  end
 
-    resources :donors, only: [:new, :create]
+  resources :donors, only: [:new, :create]
 
-    resources :messages, only: [:index, :new, :create]
+  resources :messages, only: [:index, :new, :create]
 
 end

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable
 
   has_one :donor, dependent: :destroy
   has_many :foods, through: :donor
@@ -13,11 +13,15 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   def avg_rating
-    total_rating = 0
-    ratings.each do |rating|
-      total_rating += rating.rate
+    if ratings.count == 0
+      return 0
+    else
+      total_rating = 0
+      ratings.each do |rating|
+        total_rating += rating.rate
+      end
+      (total_rating / ratings.count).to_i
     end
-    (total_rating / ratings.count).to_i
   end
 
   def blank_stars
