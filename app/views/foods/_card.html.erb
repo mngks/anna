@@ -1,22 +1,26 @@
-<div class="card-vert">
-    <%= cl_image_tag food.photo, height: 300, width: 400, crop: :fill %>
-    <div class="card-vert-infos">
-        <div>
-            <h2>
-                <%= link_to "#{food.name}", food_path(food) %>
-            </h2>
-            <p>
-                <div class="ratings">
-                    <% if user.avg_rating.nil? %>
-                    <i>No reviews yet</i>
-                    <% else %>
-                    <i class="far fa-star"></i> <strong>
-                        <%= user.avg_rating.to_f %> </strong> (
-                    <%= user.reviews.count %> reviews)
-                </div>
-                <% end %>
-                <div class="location"> <i class="fas fa-map-marker-alt"></i> 200m away </div>
-            </p>
+<div class="card-vert-grid">
+    <% user.foods.each do |food| %>
+    <div class="card-vert">
+        <%= cl_image_tag food.photo, height: 300, width: 400, crop: :fill %>
+        <div class="card-vert-infos">
+            <div>
+                <h2>
+                    <%= link_to "#{food.name}", food_path(food) %>
+                </h2>
+                <p>
+                    <div class="ratings">
+                        <% if user.avg_rating.nil? %>
+                        <i>No reviews yet</i>
+                        <% else %>
+                        <i class="far fa-star"></i> <strong>
+                            <%= user.avg_rating.to_f %> </strong> (
+                        <%= user.reviews.count %> reviews)
+                    </div>
+                    <% end %>
+                    <div class="location"> <i class="fas fa-map-marker-alt"></i> 200m away </div>
+                </p>
+            </div>
         </div>
     </div>
+    <% end %>
 </div>

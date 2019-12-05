@@ -16,12 +16,10 @@
             <!-- <a href="#" class="tab-underlined active">Listings</a> -->
         </li>
         <li>
-            <a href="#" class="tab-underlined">Reviews</a>
+            <%= link_to "Reviews", user_reviews_path(@user), remote: true, class: "tab-underlined" %>
+            <!--    <a href="#" class="tab-underlined">Reviews</a> -->
         </li>
     </ul>
-    <div class="card-vert-grid">
-
-        <% @user.foods.each do |food| %>
-        <%= render 'foods/card',food: food, user: @user %>
-        <% end  %>
+    <div class="tab-content">
+        <%= render 'foods/card', user: @user %>
     </div>

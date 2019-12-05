@@ -1,13 +1,12 @@
-const cards = document.querySelector('.card-vert-grid');
-cards.innerHTML = '';
+var tab_content = document.querySelector('.tab-content');
+tab_content.innerHTML = '';
 
 function createNewCard(innerHTML = '') {
-  cards.insertAdjacentHTML('beforeend', innerHTML);
+  tab_content.insertAdjacentHTML('beforeend', innerHTML);
 }
-
 
 <% if @foods.any? %>
   <% @foods.each do |food| %>
-    createNewCard('<%= j render "card", food: food, user: @user %>');
+    createNewCard('<%= j render "card", user: @user %>');
   <% end %>
 <% end %>
