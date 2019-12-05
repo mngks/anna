@@ -59,3 +59,4 @@ class MessagesController < ApplicationController
     @donation = Donation.find(params[:donation_id])
   end
 end
+
