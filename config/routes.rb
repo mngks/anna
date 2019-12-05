@@ -7,9 +7,12 @@ Rails.application.routes.draw do
 
   resources :foods, only: [:show, :new, :create] do
     resources :donations, only: [:create, :show]
+    resources :messages, only: [:index]
   end
 
-  resources :donations, only: [:index]
+  resources :donations, only: [:index] do
+    resources :messages, only: [:index, :create]
+  end
 
   resources :users, only: [:show, :edit, :update] do
     resources :foods, only: [:index]
@@ -17,7 +20,4 @@ Rails.application.routes.draw do
   end
 
   resources :donors, only: [:new, :create]
-
-  resources :messages, only: [:index, :new, :create]
-
 end

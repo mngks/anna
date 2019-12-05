@@ -21,11 +21,16 @@ class FoodsController < ApplicationController
       end
     end
 
+  def show
+    @donation = @food.donations.build
+    # @donation.user = current_user
+
     respond_to do |format|
       format.html
         format.js # <-- will render `app/views/foods/index.js.erb`
       end
     end
+
 
     def show
       @donation = @food.donations.build

@@ -1,1 +1,30 @@
+<!-- app/views/messages/index.html.erb -->
+<div class="container">
+  <h1>
+    <%= @food.name %>
+  </h1>
+
+  <%= cl_image_tag @food.photo, width: 100 %>
+
+  <section id="messages" class="mb4">
+    <% @messages.each do |message| %>
+      <% if message.content %>
+        <% user = User.find(message.user.id) %>
+        <article class="message is-dark">
+          <div class="message-body">
+            <div class="inline-block"><strong><%= user.username %></strong> <%= message.message_time %></div>
+            <div class="block pt4">
+              <div class="f4"><%= message.content %></div>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    <% end %>
+  </section>
+
+  <%= simple_form_for [@donation, @message] do |f| %>
+    <%= f.input :content, class: "textarea", placeholder: "Type of message" %>
+    <%= f.submit %>
+  <% end %>
+</div>
 
