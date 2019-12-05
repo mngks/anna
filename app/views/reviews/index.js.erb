@@ -1,0 +1,24 @@
+var tab_content = document.querySelector('.tab-content');
+tab_content.innerHTML = '';
+
+var listings = document.getElementById('listings');
+listings.classList.remove("active");
+
+var reviews = document.getElementById('reviews');
+reviews.classList.add("active");
+
+
+function createNewReview(innerHTML = '') {
+  tab_content.insertAdjacentHTML('beforeend', innerHTML);
+}
+
+<% if @reviews.any? %>
+  <% @reviews.each do |review| %>
+    createNewReview('<%= j render "review", user: @user %>');
+  <% end %>
+
+  <% else %>
+tab_content.insertAdjacentHTML('beforeend', "<p>No reviews yet </p>");
+
+<% end %>
+

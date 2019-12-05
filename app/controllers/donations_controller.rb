@@ -1,5 +1,5 @@
 class DonationsController < ApplicationController
-    def index
+  def index
     @donations = current_user.donor.donations
   end
 

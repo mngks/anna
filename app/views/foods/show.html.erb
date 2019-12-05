@@ -8,6 +8,7 @@
                 <h3>
                     <%= @food.name %>
                 </h3>
+                <%= render 'shared/user-profile', user: @user %>
                 <p>Date of Purchase:
                     <%= @food.purchase_date%>
                 </p>

@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Dropping the seeds"
-User.destroy_all if Rails.env.development? || Rails.env.test?
-Category.destroy_all if Rails.env.development? || Rails.env.test?
+Rating.destroy_all
+User.destroy_all
+Category.destroy_all
 
 puts "Creating the seeds"
 
@@ -19,6 +20,10 @@ User.create(
   password_confirmation: 'user123',
   username: 'Mandy',
   remote_photo_url: "https://images.unsplash.com/photo-1525450824786-227cbef70703?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1600",
+  bio: 'I love sharing food as the best way to anyone’s heart is through their stomach (;',
+  preferred_start_time: '6pm',
+  preferred_end_time: '8pm',
+  pickup_days: 'Monday'
 )
 
 
@@ -63,10 +68,7 @@ canned_foods = Category.create!(
 puts "create donor profile for first user"
 Donor.create(
   full_name: 'Mandy Tan',
-  bio: 'I love sharing food as the best way to anyone’s heart is through their stomach (;',
-  pickup_start_time: '6pm',
-  pickup_end_time: '8pm',
-  pickup_days: 'Monday',
+  contact_number: '91234567',
   user: User.first
 )
 
@@ -173,16 +175,16 @@ Donation.create(
   )
 
 puts "create reviews of avg 4 for user.first"
-Rating.create(
-  rate: 5,
-  review: "Mandy was so kind and amazing",
+Review.create(
+  rating: 5,
+  content: "Mandy was so kind and amazing",
   donation: Donation.first,
   user: User.first
   )
 
-Rating.create(
-  rate: 3,
-  review: "Mandy was late and wasn't very responsive",
+Review.create(
+  rating: 3,
+  content: "Mandy was late and wasn't very responsive",
   donation: Donation.last,
   user: User.first
   )
