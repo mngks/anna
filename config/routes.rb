@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reviews/index'
   get 'users/show'
   devise_for :users
   root to: 'foods#index'
@@ -10,8 +11,9 @@ Rails.application.routes.draw do
 
   resources :donations, only: [:index]
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show, :edit, :update] do
     resources :foods, only: [:index]
+    resources :reviews, only: [:index]
   end
 
   resources :donors, only: [:new, :create]

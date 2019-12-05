@@ -23,7 +23,7 @@ class FoodsController < ApplicationController
 
     respond_to do |format|
       format.html
-        format.js  # <-- will render `app/views/foods/index.js.erb`
+        format.js # <-- will render `app/views/foods/index.js.erb`
       end
     end
 
