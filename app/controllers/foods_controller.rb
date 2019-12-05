@@ -22,15 +22,15 @@ class FoodsController < ApplicationController
     end
 
     respond_to do |format|
-        format.html
+      format.html
         format.js  # <-- will render `app/views/foods/index.js.erb`
       end
-  end
+    end
 
-  def show
-    @donation = @food.donations.build
-    @donation.user = current_user
-
+    def show
+      @donation = @food.donations.build
+      @donation.user = current_user
+      @user = @food.donor.user
     @foods = Food.geocoded # returns food with coordinates
 
     @markers = @foods.map do |food|
@@ -49,7 +49,7 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.donor = current_user.donor
-      if @food.save
+    if @food.save
       redirect_to food_path(@food)
     end
 
