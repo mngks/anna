@@ -17,7 +17,7 @@ class FoodsController < ApplicationController
 
   def show
     @donation = @food.donations.build
-    @donation.user = current_user
+    # @donation.user = current_user
 
     @foods = Food.geocoded # returns food with coordinates
 
@@ -40,9 +40,9 @@ class FoodsController < ApplicationController
       if @food.save
       redirect_to food_path(@food)
     end
-    
+
     @category = Category.all
-    
+
   end
 
   def edit
