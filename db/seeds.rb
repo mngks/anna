@@ -174,15 +174,15 @@ Donation.create(
 
 puts "create reviews of avg 4 for user.first"
 Rating.create(
-  rate: 5,
-  review: "Mandy was so kind and amazing",
+  rating: 5,
+  content: "Mandy was so kind and amazing",
   donation: Donation.first,
   user: User.first
   )
 
 Rating.create(
-  rate: 3,
-  review: "Mandy was late and wasn't very responsive",
+  rating: 3,
+  content: "Mandy was late and wasn't very responsive",
   donation: Donation.last,
   user: User.first
   )

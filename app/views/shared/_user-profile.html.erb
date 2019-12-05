@@ -7,12 +7,16 @@
             <%= @user.username  %>
         </h2>
         <div class="ratings">
+            <% if @user.avg_rating.zero? %>
+            <i>No reviews yet</i>
+            <% else %>
             <% @user.avg_rating.times do %>
             <i class="fas fa-star"></i>
             <% end %>
             <% @user.blank_stars.times do %>
             <i class="far fa-star"></i>
             <% end  %>
+            <% end %>
         </div>
     </div>
 </div>
