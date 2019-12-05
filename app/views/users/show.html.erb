@@ -1,7 +1,7 @@
 <%= render 'shared/user-profile' %>
 <% if @user.donor %>
 <%= @user.donor.bio %>
-<h2> Where to Meet </h2>
+<h4> Where to Meet </h4>
 <p>Preferred Pick-Up Time:
     <%= @user.donor.pickup_start_time.strftime("%I:%M %p") %> -
     <%= @user.donor.pickup_end_time.strftime("%I:%M %p")  %>
