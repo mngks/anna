@@ -12,14 +12,18 @@
     <% end %>
     <ul class="list-inline tabs-underlined">
         <li>
-            <%= link_to "Listings", user_foods_path(@user), remote: true, class: "tab-underlined active" %>
+            <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active" %>
             <!-- <a href="#" class="tab-underlined active">Listings</a> -->
         </li>
         <li>
-            <%= link_to "Reviews", user_reviews_path(@user), remote: true, class: "tab-underlined" %>
+            <%= link_to "Reviews", user_reviews_path(@user), remote: true, id: "reviews", class: "tab-underlined" %>
             <!--    <a href="#" class="tab-underlined">Reviews</a> -->
         </li>
     </ul>
     <div class="tab-content">
+        <% if @user.foods.any? %>
         <%= render 'foods/card', user: @user %>
+        <% else %>
+        <p> No listings yet </p>
+        <% end %>
     </div>

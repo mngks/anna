@@ -1,13 +1,10 @@
-<div class="d-flex align-items-center flex-row mb-3">
-    <div class="p-2 ">
-        <img src="<%= cl_image_path @user.photo, height: 300, width: 300, crop: :fill %>" class="avatar-large">
-    </div>
-    <div class="p-2">
-        <h2>
-            <%= @user.username  %>
-        </h2>
+
+<% @user.reviews.each do |review| %>
+<div class="card-hori">
+    <div class="card-content">
         <div class="ratings">
             <% if @user.avg_rating.zero? %>
+            <i>No reviews yet</i>
             <% else %>
             <% @user.avg_rating.times do %>
             <i class="fas fa-star"></i>
@@ -17,5 +14,12 @@
             <% end  %>
             <% end %>
         </div>
+        <h2>
+            <%= @user.username %>
+        </h2>
+        <p>
+            <%= review.content %>
+        </p>
     </div>
 </div>
+<% end %>
