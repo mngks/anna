@@ -1,6 +1,6 @@
 <%= render 'shared/user-profile' %>
 <% if @user == current_user %>
-<h1> insert the edit profile button here </h1>
+<%= link_to "Edit my profile", edit_user_path(@user), class: "btn btn-primary" %>
 <% end %>
 
 <div>
