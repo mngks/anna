@@ -7,7 +7,7 @@
       <%= link_to "Create Food", new_food_path, class: "nav-link" %>
     </div>
     <div>
-      <%= link_to "Messages", "#", class: "nav-link" %>
+      <%= link_to "Messages", user_donations_path(current_user), class: "nav-link" %>
     </div>
   <% end %>
 
@@ -22,7 +22,7 @@
             </div>
           </div>
         <% else %>
-          <div></div> class="nav-item">
+          <div>
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </div>
         <% end %>
