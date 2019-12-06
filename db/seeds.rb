@@ -8,6 +8,7 @@
 
 puts "Dropping the seeds"
 Review.destroy_all
+Message.destroy_all
 User.destroy_all
 Category.destroy_all
 
