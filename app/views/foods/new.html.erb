@@ -7,9 +7,9 @@
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.input :name %>
-        <%= f.input :description %>
+        <%= f.input :description, as: :text %>
         <%= f.input :purchase_date %>
-        <%= f.association :categories, as: :check_boxes %>
+        <%= f.association :categories, as: :check_boxes, include_blank: false, include_hidden:false %>
         <%= f.input :location %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
