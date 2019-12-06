@@ -8,6 +8,7 @@
 
 puts "Dropping the seeds"
 Review.destroy_all
+Message.destroy_all
 User.destroy_all
 Category.destroy_all
 
@@ -23,6 +24,7 @@ User.create(
   bio: 'I love sharing food as the best way to anyone’s heart is through their stomach (;',
   preferred_start_time: '6pm',
   preferred_end_time: '8pm',
+
 )
 
 
