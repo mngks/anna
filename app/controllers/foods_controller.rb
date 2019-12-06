@@ -66,6 +66,16 @@ class FoodsController < ApplicationController
   end
 
   def update
+    if @food.update(food_params)
+      @food.categories = []
+      params[:food][:category_ids].each do |category_id|
+        @food.categories << Category.find(category_id)
+      end
+      
+      redirect_to @food
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -83,6 +93,6 @@ class FoodsController < ApplicationController
   end
 
   def food_params
-    params.require(:food).permit(:name, :photo, :purchase_date, :category, :location)
+    params.require(:food).permit(:name, :description, :photo, :purchase_date, :categories, :location)
   end
 end
