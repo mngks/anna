@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="container-header">
+      <h2>My conversations</h2>
+    </div>
+    <% @user.donations.each do |donation| %>
+
+          <div class="card-hori">
+            <div class="card-photo">
+              <%= cl_image_tag donation.food.photo%>
+            </div>
+            <div class="card-content">
+              <h2><%= donation.food.name %></h2>
+              <p><%= donation.food.donor.full_name %></p>
+              <%= donation.messages.last.content %>
+            </div>
+
+            <div class="card-avatar">
+            </div>
+
+            <div class="ratings">
+            </div>
+
+            <div class="distance">
+            </div>
+
+          </div>
+        <% end %>
+
+  </div>
+</div>
+</div>
