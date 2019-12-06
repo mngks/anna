@@ -23,7 +23,7 @@
     </p>
     <p>Preferred Pick-Up Day:
         <% if @user.pickup_days %>
-        <%= @user.pickup_days %>
+        <%= @user.pickup_days.join(", ") %>
         <% else %>
         No preferred days set yet
         <% end %>

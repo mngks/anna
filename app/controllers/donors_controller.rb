@@ -20,6 +20,6 @@ class DonorsController < ApplicationController
   private
 
   def donor_params
-    params.require(:donor).permit(:full_name, :username, :bio, :pickup_time)
+    params.require(:donor).permit(:full_name, :contact_number)
   end
 end

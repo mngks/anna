@@ -2,15 +2,30 @@
 <%= f.error_notification %>
 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 <div class="form-inputs">
+    <%= f.input :photo, label: 'Profile Picture' %>
+    <%= f.input :photo_cache, as: :hidden %>
+</div>
+<div class="form-inputs">
     <%= f.input :bio %>
 </div>
-<div class="form-inputs">
-  Preferred Meeting Time
-    <%= f.input :preferred_start_time, label: 'Start' %> - <%= f.input :preferred_end_time, label: 'End' %>
+Preferred Meeting Time
+<div class="form-inputs d-flex p-2">
+    <div class="flex-fill p-2">
+        <%= f.input :preferred_start_time, label: 'Start' %>
+    </div>
+    <div class="p-2"> - </div>
+    <div class="flex-fill p-2">
+        <%= f.input :preferred_end_time, label: 'End' %>
+    </div>
 </div>
 <div class="form-inputs">
-  <%= f.input :pickup_days, collection: [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], as: :check_boxes %>
-  </div>
+    <%= f.input :pickup_days,
+      selected: user.pickup_days,
+      collection: [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      as: :check_boxes,
+      include_blank: false,
+      include_hidden: false %>
+</div>
 <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-primary' %>
 </div>
