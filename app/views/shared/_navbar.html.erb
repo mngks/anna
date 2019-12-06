@@ -1,5 +1,5 @@
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  
+
   <% if user_signed_in? %>
     <div>
       <%= link_to "Explore", root_path, class: "nav-link" %>
@@ -8,7 +8,7 @@
       <%= link_to "Create Food", new_food_path, class: "nav-link" %>
     </div>
     <div>
-      <%= link_to "Messages", "#", class: "nav-link" %>
+      <%= link_to "Messages", user_donations_path(current_user), class: "nav-link" %>
     </div>
   <% end %>
 
@@ -31,6 +31,6 @@
         <% end %>
       </ul>
     </div>
-    
+
 </div>
 
