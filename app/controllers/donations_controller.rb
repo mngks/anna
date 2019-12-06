@@ -1,6 +1,9 @@
 class DonationsController < ApplicationController
   def index
-    @donations = current_user.donor.donations
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+     @donations = current_user.donor.donations
+   end
   end
 
   def create
