@@ -28,4 +28,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:preferred_start_time, :preferred_end_time, :bio)
   end
 end
-
