@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resources :donations, only: [:create, :show]
     resources :messages, only: [:index]
   end
-
+  resources :donations, only: [:update]
+  
   resources :donations, only: [:index] do
     resources :messages, only: [:index, :create]
   end

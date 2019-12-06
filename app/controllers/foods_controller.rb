@@ -10,7 +10,6 @@ class FoodsController < ApplicationController
       @foods = Food.all
     end
 
-
     @categories = Category.all
 
     if params[:category_name]
