@@ -3,9 +3,16 @@
     <div>
       <%= link_to "Explore", root_path, class: "nav-link" %>
     </div>
+    
     <div>
-      <%= link_to "Create Food", new_food_path, class: "nav-link" %>
+             <% if current_user.donor.nil? %>
+        <%= link_to "Create Food", new_donor_path, class: "nav-link" %>
+        <% else %>
+         <%= link_to "Create Food", new_food_path, class: "nav-link" %>
+        <% end %>
     </div>
+
+    
     <div>
       <%= link_to "Messages", user_donations_path(current_user), class: "nav-link" %>
     </div>
