@@ -12,4 +12,11 @@ class DonationsController < ApplicationController
       redirect_to food_donation_path(@food, @donation)
     end
   end
+
+  def update
+    @donation = Donation.find(params[:id])
+    @donation.update(confirmed: params[:donation][:confirmed])
+    redirect_to donation_messages_path(@donation)
+  end
+
 end
