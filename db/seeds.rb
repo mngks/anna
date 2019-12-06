@@ -23,7 +23,6 @@ User.create(
   bio: 'I love sharing food as the best way to anyone’s heart is through their stomach (;',
   preferred_start_time: '6pm',
   preferred_end_time: '8pm',
-  pickup_days: 'Monday'
 )
 
 

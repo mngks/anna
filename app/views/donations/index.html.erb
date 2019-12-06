@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="container-header">
+        <h2>My conversations</h2>
+    </div>
+    <% @user.donations.each do |donation| %>
+    <% unless donation.messages.empty?  %>
+    <div class="card-hori">
+        <div class="card-photo">
+            <%= cl_image_tag donation.food.photo%>
+        </div>
+        <div class="card-content">
+            <p><strong>
+                    <%= donation.food.name %> by
+                    <%= donation.food.donor.user.username %>
+            </strong>
+
+                <% if donation.confirmed %>
+                (Confirmed)
+                <% else %>
+                (Unconfirmed)
+                <% end %>
+            </p>
+            <p>
+                <% unless donation.messages.empty?  %>
+                Latest message:
+                <%= donation.messages.last.content %> by
+                <%= donation.messages.last.user.username %>
+                <% end %>
+            </p>
+            <p>
+                <%= link_to "View Chat", donation_messages_path(donation) %>
+            </p>
+        </div>
+    </div>
+    <% end %>
+    <% end %>
+</div>
+</div>
+</div>
