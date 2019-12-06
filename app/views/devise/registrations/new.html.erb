@@ -17,6 +17,11 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <p>Profile Photo</p>
+    <%= f.label :photo do %>
+    <%= f.file_field :photo %>
+    <%= f.hidden_field :photo_cache %>
+    <% end %>
 </div>
 <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
