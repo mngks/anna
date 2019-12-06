@@ -3,12 +3,14 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
+    # raise
   end
 
   def edit
   end
 
   def update
+    @user.pickup_days = params[:user][:pickup_days]
     if @user.update(user_params)
       redirect_to @user
     else
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:preferred_start_time, :preferred_end_time, :pickup_days, :bio)
+    params.require(:user).permit(:preferred_start_time, :preferred_end_time, :bio)
   end
 end
 
