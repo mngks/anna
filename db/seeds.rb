@@ -38,31 +38,37 @@ User.create(
 
 puts 'create categories'
 fruits = Category.create!(
-  name: 'Fruits'
+  name: 'Fruits',
+  remote_photo_url: "https://images.unsplash.com/photo-1521732813055-61b789f61463?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
 )
 
 
 dairy = Category.create!(
-  name: 'Dairy'
+  name: 'Dairy',
+  remote_photo_url: "https://images.unsplash.com/photo-1528750997573-59b89d56f4f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=866&q=80"
 )
 
 
 grains = Category.create!(
-  name: 'Grains'
+  name: 'Grains',
+  remote_photo_url: "https://images.unsplash.com/photo-1542990253-a781e04c0082?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=984&q=80"
 )
 
 
 poultry = Category.create!(
-  name: 'Poultry'
+  name: 'Poultry',
+  remote_photo_url: "https://images.unsplash.com/photo-1529856426070-e610ede5a2fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
 )
 
 
 vegetables = Category.create!(
-  name: 'Vegetables'
+  name: 'Vegetables',
+  remote_photo_url: "https://images.unsplash.com/photo-1538159021332-8f28e9eca2fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
 )
 
 canned_foods = Category.create!(
-  name: 'Canned Foods'
+  name: 'Canned Foods',
+  remote_photo_url: "https://images.unsplash.com/photo-1534483509719-3feaee7c30da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
 )
 
 puts "create donor profile for first user"

@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 2019_12_06_035718) do
 
   create_table "donations", force: :cascade do |t|
     t.boolean "confirmed", default: false
-    t.bigint "user_id"
     t.bigint "food_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["food_id"], name: "index_donations_on_food_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
   end
