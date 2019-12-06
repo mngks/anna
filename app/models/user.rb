@@ -13,7 +13,7 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   validates :username, uniqueness: true, presence: true
-  validates :photo,  presence: true
+
 
   def avg_rating
     if reviews.count == 0
