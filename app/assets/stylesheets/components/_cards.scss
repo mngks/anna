@@ -1,106 +1,140 @@
 .cards-scrolling-wrapper {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  text-decoration: none;
-
-  .card-category {
-    display: inline-block;
-    width: 160px;
-    height: 120px;
-    margin: 5px;
-    border-radius: .5em;
-    text-align: center;
-    line-height: 120px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
     text-decoration: none;
-  }
+
+    .card-category {
+        display: inline-block;
+        width: 160px;
+        height: 120px;
+        margin: 5px;
+        border-radius: .5em;
+        text-align: center;
+        line-height: 120px;
+        text-decoration: none;
+    }
+}
+
+.card-meetings {
+    overflow: hidden;
+    height: 100px;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 32px rgba(141, 160, 94, 0.25);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.card-meetings img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: .3em;
+}
+
+.card-meetings h2 {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.card-meetings p {
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    text-decoration: none;
 }
 
 .card-hori {
-  overflow: hidden;
-  height: 100px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  margin: 10px;
-  text-decoration: none;
+    overflow: hidden;
+    height: 100px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    text-decoration: none;
 }
 
 .card-hori img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-  border-radius: .3em;
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+    border-radius: .3em;
 }
 
 .card-hori h2 {
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .card-hori p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-  text-decoration: none;
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    text-decoration: none;
 }
 
 .card-content {
-  margin-left: 15px;
+    margin-left: 15px;
 }
 
 .card-hori .card-hori-infos {
-  padding: 16px;
+    padding: 16px;
 }
 
 .card-avatar {
-  width: 50%;
-  border-radius: 50%;
+    width: 50%;
+    border-radius: 50%;
 }
 
 .container-header {
-  margin: 20px;
+    margin: 20px;
 }
 
 
 .card-vert-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
 }
 
 .card-vert {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.card-vert > img {
-  height: 136px;
-  width: 100%;
-  object-fit: cover;
+.card-vert>img {
+    height: 136px;
+    width: 100%;
+    object-fit: cover;
 }
 
 
 .card-vert h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .card-vert p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
 }
 
 .card-vert a {
-  text-decoration: none;
-  color: #414141;
+    text-decoration: none;
+    color: #414141;
 }
 
 
@@ -112,42 +146,41 @@
 
 
 .card-food {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .card-food img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .card-food h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .card-food p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
 }
 
 
 .card-food .card-food-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
 }
 
 .card-food-infos .card-food-location {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+    position: absolute;
+    right: 16px;
+    top: -20px;
+    width: 40px;
 }
-

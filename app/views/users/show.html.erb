@@ -1,49 +1,71 @@
-<%= render 'shared/user-profile' %>
-<% if @user == current_user %>
-<%= link_to "Edit my profile", edit_user_path(@user), class: "btn btn-primary" %>
-<% end %>
-<div>
-    <%= @user.bio %>
+<div class="d-flex justify-content-center flex-row mb-3">
+    <img src="<%= cl_image_path @user.photo, height: 300, width: 300, crop: :fill %>" class="user-avatar" style="text-align: center">
 </div>
-<div>
-    <h4> Where to Meet </h4>
-    <p>Preferred Meeting Time:
-        <% if @user.preferred_start_time %>
-        <%= @user.preferred_start_time.strftime("%I:%M %p") %> -
+<div class="profile-content mb-3">
+    <div class="d-flex align-items-center flex-row mb-3 p-0">
+        <h2 class="pr-3">
+            <%=@user.username  %>
+        </h2>
+        <div>
+            <% if @user == current_user %>
+            <%= link_to "Edit my profile", edit_user_path(@user), class: "btn btn-primary" %>
+            <% end %>
+        </div>
+    </div>
+    <div class="ratings mb-3">
+        <% if @user.avg_rating.zero? %>
         <% else %>
-        No preference set yet
+        <h4>
+            <% @user.avg_rating.times do %>
+            <i class="fas fa-star"></i>
+            <% end %>
+            <% @user.blank_stars.times do %>
+            <i class="far fa-star"></i>
+        </h4>
+        <% end  %>
         <% end %>
-        <% if @user.preferred_end_time %>
-        <%= @user.preferred_end_time.strftime("%I:%M %p")  %>
-        <% end %>
-    </p>
-    <p>Preferred Pick-Up Day:
-        <% if @user.pickup_days %>
-        <%= @user.pickup_days.join(", ") %>
-        <% else %>
-        No preferred days set yet
-        <% end %>
-</div>
-
-<% if @user == current_user %>
-<h2><div class="upcoming-meetings">Food I am about to share</div></h2>
-  <%= render 'meetings', user: @user %>
-
-</div>
-<% end %>
-
-<ul class="list-inline tabs-underlined">
-    <li>
-        <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active" %>
-    </li>
-    <li>
-        <%= link_to "Reviews", user_reviews_path(@user), remote: true, id: "reviews", class: "tab-underlined" %>
-    </li>
-</ul>
-<div class="tab-content">
-    <% if @user.foods.any? %>
-    <%= render 'foods/card', user: @user %>
-    <% else %>
-    <p> No listings yet </p>
+    </div>
+    <div class="mb-3">
+        <%= @user.bio %>
+    </div>
+    <div class="mb-4">
+        <h4> Preferred Meeting Details </h4>
+        <p><i class="far fa-clock"></i>
+            <% if @user.preferred_start_time %>
+            <%= @user.preferred_start_time.strftime("%I:%M %p") %> -
+            <% else %>
+            No preference set yet
+            <% end %>
+            <% if @user.preferred_end_time %>
+            <%= @user.preferred_end_time.strftime("%I:%M %p")  %>
+            <% end %>
+        </p>
+        <p><i class="far fa-calendar-alt"></i>
+            <% if @user.pickup_days %>
+            <%= @user.pickup_days.join(", ") %>
+            <% else %>
+            No preferred days set yet
+            <% end %>
+    </div>
+    <% if @user == current_user %>
+    <h4>
+        <div class="upcoming-meetings mt-3 mb-3">Food I am about to share</div>
+    </h4>
+    <%= render 'meetings', user: @user %>
     <% end %>
+    <ul class="list-inline tabs-underlined">
+        <li>
+            <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active" %>
+        </li>
+        <li>
+            <%= link_to "Reviews", user_reviews_path(@user), remote: true, id: "reviews", class: "tab-underlined" %>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <% if @user.foods.any? %>
+        <%= render 'foods/card', user: @user %>
+        <% else %>
+        <p> No listings yet </p>
+        <% end %>
+    </div>
 </div>
