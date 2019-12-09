@@ -23,25 +23,30 @@
  
   <div>
     <h3>All Listings</h3>
-      
-      <% @foods.each do |food| %>
+    <% @foods.each do |food| %>
+      <% unless food.donations.find_by_confirmed(true) %>
+        <%= link_to food_path(food) do%>
+        <% coordinates = [ food.latitude , food.longitude ] %>
+          <div data-coordinates= "<%= coordinates.to_json %> " class="card-hori">
+            <div class="card-photo">
+              <%= cl_image_tag food.photo%>
+            </div>
+            <div class="card-content">
+              <h2><%= food.name %></h2>
+              <p><%= food.donor.full_name %> <span></span> </p>
+            </div>
 
-        <% unless food.donations.find_by_confirmed(true) %>
-             <div class="card-food mb-3">
-          <%= link_to food_path(food) do%>
-          <%= cl_image_tag food.photo%>  
-        <div class="card-food-infos">
-            <h2><%= food.name %></h2>
-            <p><%= food.donor.full_name %></p>
-        </div>
-          <div class="card-food-location"> 300m from you </div>
-        </div>
-            <% end %>  
-          <% end %>
-          <% end %>
-      </div>         
-    </div>
-    
-  </div>
-  
-</div>
+            <div class="card-avatar">
+
+            </div>
+
+            <div class="ratings">
+            </div>
+
+            <div class="distance">
+            </div>
+
+          </div>
+        <% end %>
+    <% end %>
+    <% end %>
