@@ -49,6 +49,10 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params)
     @food.donor = current_user.donor
     if @food.save
+      @food.categories = []
+      params[:food][:category_ids].each do |category_id|
+        @food.categories << Category.find(category_id)
+      end
       redirect_to food_path(@food)
     end
 
