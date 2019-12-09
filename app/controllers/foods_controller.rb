@@ -23,22 +23,16 @@ class FoodsController < ApplicationController
 
   def show
     @donation = @food.donations.build
-    # @donation.user = current_user
+    @donation.user = current_user
+    @user = @food.donor.user
+    #@foods = Food.geocoded # returns food with coordinates
 
     respond_to do |format|
       format.html
-        format.js # <-- will render `app/views/foods/index.js.erb`
-      end
+      format.js # <-- will render `app/views/foods/index.js.erb`
     end
 
-
-    def show
-      @donation = @food.donations.build
-      @donation.user = current_user
-      @user = @food.donor.user
-    @foods = Food.geocoded # returns food with coordinates
-
-    @markers = @foods.map do |food|
+    @markers = [@food].map do |food|
       {
         lat: food.latitude,
         lng: food.longitude,
