@@ -1,7 +1,12 @@
+.panel {
+   background-color: white;
+   box-shadow: 2px 2px 32px rgba(141, 160, 94, 0.25);
+}
+
 .profile-content {
   background-color: white;
   border-radius: 32px 32px 0px 0px;
-  padding: 32px;
+  padding: 16px;
 }
 
 .profile-content .ratings {

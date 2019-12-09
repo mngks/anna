@@ -49,13 +49,13 @@
     </div>
     <% if @user == current_user %>
     <h4>
-        <div class="upcoming-meetings mt-3 mb-3">Food I am about to share</div>
+        <div class="upcoming-meetings mt-3 mb-3">My Upcoming Meetings</div>
     </h4>
     <%= render 'meetings', user: @user %>
     <% end %>
     <ul class="list-inline tabs-underlined">
         <li>
-            <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active" %>
+            <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active pl-0 ml-0" %>
         </li>
         <li>
             <%= link_to "Reviews", user_reviews_path(@user), remote: true, id: "reviews", class: "tab-underlined" %>
