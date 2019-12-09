@@ -3,6 +3,7 @@
         <h2>My conversations</h2>
     </div>
 
+<% unless @user.donor.nil? %>
  <% @user.donor.donations.each do |donation| %>
     <% unless donation.messages.empty?  %>
     <div class="card-hori">
@@ -33,6 +34,7 @@
             </p>
         </div>
     </div>
+    <% end %>
     <% end %>
     <% end %>
 

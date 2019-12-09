@@ -1,7 +1,7 @@
-<% if @user.donor.donations.nil? && @user.donations.nil? %>
-No confirmed meetings yet!
+<% if @events.empty? %>
+  No confirmed meetings yet!
 <% else %>
-<% @user.donor.donations.each do |donation| %>
+<% @events.each do |donation| %>
 <% if donation.confirmed  %>
 <div class="card-hori">
     <div class="card-photo">
@@ -17,32 +17,11 @@ No confirmed meetings yet!
         </p>
         <p>
             <%= link_to "View Chat", donation_messages_path(donation) %> |
-            <%= link_to "Mark as Completed", new_user_review_path(@user)  %>
+            <%= link_to "Leave a review", new_donation_review_path(donation)  %>
         </p>
     </div>
 </div>
 <% end %>
 <% end %>
-<% @user.donations.each do |donation| %>
-<% if donation.confirmed  %>
-<div class="card-hori">
-    <div class="card-photo">
-        <%= cl_image_tag donation.food.photo%>
-    </div>
-    <div class="card-content">
-        <p><strong>
-                <%= donation.food.name %>
-            </strong>
-        </p>
-        <p>
-            <%= donation.food.donor.user.username %>
-        </p>
-        <p>
-            <%= link_to "View Chat", donation_messages_path(donation) %> |
-            <%= link_to "Leave Review", new_user_review_path(@user)  %>
-        </p>
-    </div>
-</div>
-<% end %>
-<% end %>
+
 <% end %>

@@ -23,12 +23,11 @@
         <% else %>
         No preferred days set yet
         <% end %>
-        <p>Preferred Location:</p>
 </div>
 
 <% if @user == current_user %>
-<h2><div class="upcoming-meetings">My Upcoming Meetings</div></h2>
-<%= render 'meetings', user: @user %>
+<h2><div class="upcoming-meetings">Food I am about to share</div></h2>
+  <%= render 'meetings', user: @user %>
 
 </div>
 <% end %>
@@ -37,7 +36,7 @@
         <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active" %>
     </li>
     <li>
-        <%= link_to "Reviews", user_reviews_path(@user), remote: true, id: "reviews", class: "tab-underlined" %>
+        <%#= link_to "Reviews", user_reviews_path(@user), remote: true, id: "reviews", class: "tab-underlined" %>
     </li>
 </ul>
 <div class="tab-content">
