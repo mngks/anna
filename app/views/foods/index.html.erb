@@ -25,13 +25,14 @@
     <% @foods.each do |food| %>
       <% unless food.donations.find_by_confirmed(true) %>
         <%= link_to food_path(food) do%>
-          <div class="card-hori">
+        <% coordinates = [ food.latitude , food.longitude ] %>
+          <div data-coordinates= "<%= coordinates.to_json %> " class="card-hori">
             <div class="card-photo">
               <%= cl_image_tag food.photo%>
             </div>
             <div class="card-content">
               <h2><%= food.name %></h2>
-              <p><%= food.donor.full_name %></p>
+              <p><%= food.donor.full_name %> <span></span> </p>
             </div>
 
             <div class="card-avatar">
