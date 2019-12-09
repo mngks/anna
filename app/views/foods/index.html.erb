@@ -1,53 +1,47 @@
-  <div class="container">
-    <h1><strong>Save Anna</strong></h1>
-    <p>Give Food a Second Life.</p>
+<div class="container p-3">
+  
+  <div class="banner p-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+      <h1><strong>svAnna</strong></h1>
+      <p>Give Food a Second Life</p>
   </div>
-</div>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="cards-scrolling-wrapper">
-      <% @categories.each do |category| %>
-      <%= link_to root_path(category_name: category.name) do%>
-      <div class="card-category"
-      style="color: white; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('<%= cl_image_path category.photo, height: 300, width: 400, crop: :fill %>')">
-        <%= category.name %>
+  <div>
+    <h3>Categories</h3> 
+    <div class="row justify-content-center px-3">
+      <div class="cards-scrolling-wrapper">
+             
+          <% @categories.each do |category| %>
+            <%= link_to root_path(category_name: category.name) do %>
+              <div class="card-category"
+              style="color: white; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('<%= cl_image_path category.photo, height: 300, width: 400, crop: :fill %>')">
+                <%= category.name %>
+              </div>
+            <% end %>
+          <% end %>
       </div>
-      <% end %>
-      <% end %>
     </div>
-  </div>
+ 
+  <div>
+    <h3>All Listings</h3>
+      
+      <% @foods.each do |food| %>
 
-  <div class="container">
-    <div class="container-header">
-      <h2>Listings near you</h2>
+        <% unless food.donations.find_by_confirmed(true) %>
+             <div class="card-food mb-3">
+          <%= link_to food_path(food) do%>
+          <%= cl_image_tag food.photo%>  
+        <div class="card-food-infos">
+            <h2><%= food.name %></h2>
+            <p><%= food.donor.full_name %></p>
+        </div>
+          <div class="card-food-location"> 300m from you </div>
+        </div>
+            <% end %>  
+          <% end %>
+          <% end %>
+      </div>         
     </div>
-    <% @foods.each do |food| %>
-      <% unless food.donations.find_by_confirmed(true) %>
-        <%= link_to food_path(food) do%>
-          <div class="card-hori">
-            <div class="card-photo">
-              <%= cl_image_tag food.photo%>
-            </div>
-            <div class="card-content">
-              <h2><%= food.name %></h2>
-              <p><%= food.donor.full_name %></p>
-            </div>
-
-            <div class="card-avatar">
-
-            </div>
-
-            <div class="ratings">
-            </div>
-
-            <div class="distance">
-            </div>
-
-          </div>
-        <% end %>
-    <% end %>
-    <% end %>
+    
   </div>
-</div>
+  
 </div>
