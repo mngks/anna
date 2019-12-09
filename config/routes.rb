@@ -10,14 +10,14 @@ Rails.application.routes.draw do
     resources :messages, only: [:index]
   end
   resources :donations, only: [:update]
-  
+
   resources :donations, only: [:index] do
     resources :messages, only: [:index, :create]
   end
 
   resources :users, only: [:show, :edit, :update] do
     resources :foods, only: [:index]
-    resources :reviews, only: [:index]
+    resources :reviews, only: [:index, :new, :create]
     resources :donations, only: [:index]
   end
 

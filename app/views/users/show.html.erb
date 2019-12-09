@@ -1,10 +1,6 @@
 <%= render 'shared/user-profile' %>
 <% if @user == current_user %>
 <%= link_to "Edit my profile", edit_user_path(@user), class: "btn btn-primary" %>
-<div class="my_meetings d-flex flex-row mb-3">
-    <div class="upcoming-meetings p-2">Upcoming Meetings</div>
-    <div class="completed-meetings p-2">Completed Meetings</div>
-</div>
 <% end %>
 <div>
     <%= @user.bio %>
@@ -29,6 +25,13 @@
         <% end %>
         <p>Preferred Location:</p>
 </div>
+
+<% if @user == current_user %>
+<h2><div class="upcoming-meetings">My Upcoming Meetings</div></h2>
+<%= render 'meetings', user: @user %>
+
+</div>
+<% end %>
 <ul class="list-inline tabs-underlined">
     <li>
         <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active" %>
