@@ -65,7 +65,7 @@ class FoodsController < ApplicationController
       params[:food][:category_ids].each do |category_id|
         @food.categories << Category.find(category_id)
       end
-      
+
       redirect_to @food
     else
       render 'edit'

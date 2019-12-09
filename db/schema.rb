@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_080256) do
+ActiveRecord::Schema.define(version: 2019_12_09_071223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_080256) do
     t.bigint "food_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "completed?", default: false
     t.index ["food_id"], name: "index_donations_on_food_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
   end
@@ -81,7 +82,9 @@ ActiveRecord::Schema.define(version: 2019_12_06_080256) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "content"
+    t.bigint "reviewed_user_id"
     t.index ["donation_id"], name: "index_reviews_on_donation_id"
+    t.index ["reviewed_user_id"], name: "index_reviews_on_reviewed_user_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -113,4 +116,5 @@ ActiveRecord::Schema.define(version: 2019_12_06_080256) do
   add_foreign_key "messages", "users"
   add_foreign_key "reviews", "donations"
   add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "users", column: "reviewed_user_id"
 end

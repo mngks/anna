@@ -15,6 +15,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
   serialize :pickup_days
 
+
   def avg_rating
     if reviews.count == 0
       return 0
@@ -27,6 +28,9 @@ class User < ApplicationRecord
     end
   end
 
+  def reviews_received
+    Review.where(reviewed_user: self)
+  end
   def blank_stars
     5 - avg_rating.to_i
   end

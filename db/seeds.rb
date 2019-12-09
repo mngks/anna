@@ -1,10 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Dropping the seeds"
 Review.destroy_all
@@ -31,6 +31,22 @@ User.create(
   password: 'user123',
   password_confirmation: 'user123',
   username: 'user2',
+  remote_photo_url: "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1581&q=80"
+)
+
+User.create(
+  email: 'user3@gmail.com',
+  password: 'user123',
+  password_confirmation: 'user123',
+  username: 'user3',
+  remote_photo_url: "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1581&q=80"
+)
+
+User.create(
+  email: 'user4@gmail.com',
+  password: 'user123',
+  password_confirmation: 'user123',
+  username: 'user4',
   remote_photo_url: "https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1581&q=80"
 )
 
@@ -77,6 +93,12 @@ Donor.create(
   user: User.first
 )
 
+Donor.create(
+  full_name: 'User 4',
+  contact_number: '82345674',
+  user: User.last
+)
+
 puts 'create foods'
 Food.create!(
   name: "Ripe Banana (4 large ones)",
@@ -112,7 +134,7 @@ Food.create!(
   location: "313 Orchard Rd, Singapore 238895",
   latitude: 1.301040,
   longitude: 103.838379,
-  donor: Donor.first,
+  donor: Donor.last,
   categories: [canned_foods]
 )
 
@@ -125,7 +147,7 @@ Food.create!(
   location: "313 Orchard Rd, Singapore 238895",
   latitude: 1.301040,
   longitude: 103.838379,
-  donor: Donor.first,
+  donor: Donor.last,
   categories: [fruits]
 )
 
@@ -151,7 +173,7 @@ Food.create!(
   location: "14 Scotts Rd, Singapore 228213",
   latitude: 1.3040,
   longitude: 103.8320,
-  donor: Donor.first,
+  donor: Donor.last,
   categories: [dairy]
 )
 
@@ -169,27 +191,12 @@ Food.create!(
 )
 
 puts "create donation"
-Donation.create(
-  user: User.first,
+Donation.create!(
+  user: User.find_by(username: 'user3'),
   food: Food.first
   )
 
-Donation.create(
-  user: User.first,
+Donation.create!(
+  user: User.find_by(username: 'user2'),
   food: Food.last
-  )
-
-puts "create reviews of avg 4 for user.first"
-Review.create(
-  rating: 5,
-  content: "Mandy was so kind and amazing",
-  donation: Donation.first,
-  user: User.first
-  )
-
-Review.create(
-  rating: 3,
-  content: "Mandy was late and wasn't very responsive",
-  donation: Donation.last,
-  user: User.first
   )
