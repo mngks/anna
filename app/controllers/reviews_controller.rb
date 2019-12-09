@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @reviews = @user.reviews
+      @reviews = Review.where(reviewed_user_id: @user.id)
     else
       @reviews = Review.all
     end

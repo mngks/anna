@@ -31,12 +31,13 @@
 
 </div>
 <% end %>
+
 <ul class="list-inline tabs-underlined">
     <li>
         <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active" %>
     </li>
     <li>
-        <%#= link_to "Reviews", user_reviews_path(@user), remote: true, id: "reviews", class: "tab-underlined" %>
+        <%= link_to "Reviews", user_reviews_path(@user), remote: true, id: "reviews", class: "tab-underlined" %>
     </li>
 </ul>
 <div class="tab-content">

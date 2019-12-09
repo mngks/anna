@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :foods, only: [:index]
     resources :donations, only: [:index]
+    resources :reviews, only: [:index]
   end
 
   resources :donors, only: [:new, :create]
