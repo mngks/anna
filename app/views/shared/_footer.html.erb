@@ -1,0 +1,7 @@
+<div class="footer">
+<% unless current_user.donor.nil?  %>
+  <%= link_to donations_path, class: "btn btn-primary" do %>
+    Notifications <span class="badge badge-info"><%= current_user.donor.donations.count %><% link_to donations_path %></span>
+  <% end %>
+  <% end %>  
+</div>
