@@ -27,14 +27,17 @@
     <%= f.submit %>
   <% end %>
 
-    <% if @donation.confirmed %> 
-      <h3>Confirmed!</h3>
-    <% else %>
-      <%= simple_form_for @donation do |f| %>
+  <div class="container" style="width: 400px; padding: 10px">
+    <div class="d-flex justify-content-around">
+      <% if @user == current_user && @donation.confirmed %>
+        <button type="button" class="btn btn-primary">confirmed</button>
+      <% elsif @user == current_user %>
+        <%= simple_form_for @donation do |f| %>
         <%= f.hidden_field :confirmed, value:true %>
-        <%= f.submit "Accept" %>
+        <%= f.submit "Accept" %> 
+        <% end %>
       <% end %>
-    <% end %>
-  
+    </div>
+  </div>
 </div>
 
