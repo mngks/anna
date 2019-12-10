@@ -52,18 +52,19 @@
 
 .card-hori {
     overflow: hidden;
-    height: 100px;
+    height: 120px;
     background: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     margin: 10px;
     text-decoration: none;
+    border-radius: .3em;
 }
 
 .card-hori img {
     height: 100%;
-    width: 120px;
+    width: 150px;
     object-fit: cover;
     border-radius: .3em;
 }
