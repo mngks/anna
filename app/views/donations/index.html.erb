@@ -20,15 +20,16 @@
                 (Unconfirmed)
                 <% end %>
             </p>
-            <p>
-                <% unless donation.messages.empty?  %>
-                Latest message:
+            <% unless donation.messages.empty?  %>
+            <p> Latest message:
                 <%= donation.messages.last.content %> by
                 <%= donation.messages.last.user.username %>
-                <% end %>
             </p>
             <p>
-                <%= link_to "View Chat", donation_messages_path(donation) %>
+                <%= current_user.unread_messages.count %> unread messages </p>
+            <% end %>
+            <p>
+                View Chat
             </p>
         </div>
     </div>
