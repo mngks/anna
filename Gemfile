@@ -20,6 +20,8 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'geocoder'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'pundit'
+gem 'sprockets', '~> 3.7.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
