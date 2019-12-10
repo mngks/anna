@@ -1,10 +1,21 @@
 .footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   height: 50px;
-   width: 100%;
-   background-color: #8DA05E;
-   text-align: center;
-   justify-content: center
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 64px;
+    width: 100%;
+    background-color: #8DA05E;
+    text-align: center;
+    justify-content: center
+}
+
+.footer ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer li {
+    display: inline;
+    margin: 0;
+    padding: 0;
 }
