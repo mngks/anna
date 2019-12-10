@@ -21,4 +21,8 @@ class Message < ApplicationRecord
     User.find(self.receiving_user_id)
   end
 
+  def check_if_read(user)
+    self.update(read: true) if self.user != user && !self.read
+  end
+
 end

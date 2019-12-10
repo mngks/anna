@@ -14,6 +14,7 @@
           <div class="message-body">
             <div class="inline-block"><strong><%= user.username %></strong> <%= message.message_time %></div>
             <div class="block pt4">
+              <% message.check_if_read(current_user) if !message.read %>
               <div class="f4"><%= message.content %></div>
             </div>
           </div>

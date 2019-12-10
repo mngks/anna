@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    @upcoming_sharing = @user.donations.where(confirmed: true)
+    @upcoming_taking = @user.donations.where(confirmed: true)
     if @user.donor
-      @upcoming_taking = @user.donor.donations.where(confirmed: true)
+      @upcoming_sharing = @user.donor.donations.where(confirmed: true)
     end
     @events = @upcoming_sharing + (@upcoming_taking || [])
   end
