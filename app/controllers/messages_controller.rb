@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
       @donation = Donation.where(food: @food, user: current_user).first_or_create
     end
 
-    @message = Message.new
+  @message = Message.new
     @message.user = current_user
     @message.donation = @donation
 
@@ -26,7 +26,6 @@ class MessagesController < ApplicationController
         donation: @donation
       )
     )
-
   end
 
   def create

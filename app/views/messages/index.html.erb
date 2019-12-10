@@ -1,51 +1,45 @@
 <!-- app/views/messages/index.html.erb -->
-
 <div class="card-message">
-  <%= cl_image_tag @food.photo, width: 100 %>
-  <div class="card-message-infos">
-    <h3><%= @food.name %></h3>
-    <p>Conversation with <%= @donation.food.donor.user.username %></p>
-  </div>
+    <%= cl_image_tag @food.photo, width: 100 %>
+    <div class="card-message-infos">
+        <h3>
+            <%= @food.name %>
+        </h3>
+        <p>Conversation with
+            <%= @donation.food.donor.user.username %>
+        </p>
+    </div>
 </div>
-
-  <section id="messages" class="mb4">
+<section id="messages" class="mb4">
     <% @messages.each do |message| %>
-      <% if message.content %>
-        <% user = User.find(message.user.id) %>
-
-      <div id="chat">
-      <%= render 'message', message: message %>
-      </div>
-
-      <% end %>
+    <% if message.content %>
+    <% user = User.find(message.user.id) %>
+    <% message.check_if_read(current_user) if !message.read %>
+    <div id="chat">
+        <%= render 'message', message: message %>
+    </div>
     <% end %>
-  </section>
-
-   <div class="form-group">
-  <%= simple_form_for [@donation, @message] do |f| %>
-
+    <% end %>
+</section>
+<div class="form-group">
+    <%= simple_form_for [@donation, @message] do |f| %>
     <%= f.text_field :content, placeholder: "Your message", class: "form-control"%>
-                 <%= f.hidden_field :user, value: current_user %>
+    <%= f.hidden_field :user, value: current_user %>
     <%= f.submit "Send Message", class: "btn btn-small" %>
-
-  <% end %>
-  </div>
-
-  <div class="container" style="width: 400px; padding: 10px">
+    <% end %>
+</div>
+<div class="container" style="width: 400px; padding: 10px">
     <div class="d-flex justify-content-around">
-      <% if @donation.food.donor.user == current_user %>
-
-      <% if @donation.confirmed %>
+        <% if @donation.food.donor.user == current_user %>
+        <% if @donation.confirmed %>
         confirmed
-
-      <% else%>
+        <% else%>
         <%= simple_form_for @donation do |f| %>
         <%= f.hidden_field :confirmed, value:true %>
         <%= f.submit "Accept" %>
         <% end %>
         <% end %>
-      <% end %>
+        <% end %>
     </div>
-  </div>
 </div>
-
+</div>
