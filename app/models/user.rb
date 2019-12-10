@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :donations, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   mount_uploader :photo, PhotoUploader
 
@@ -18,7 +19,7 @@ class User < ApplicationRecord
 def reviews_received
     Review.where(reviewed_user_id: self.id)
   end
-  
+
   def avg_rating
     if self.reviews_received.count == 0
       return 0
@@ -30,8 +31,16 @@ def reviews_received
       (total_rating / reviews_received.count).to_i
     end
   end
-  
+
   def blank_stars
     5 - avg_rating.to_i
+  end
+
+  def unread_messages
+    unless Message.where(receiving_user_id: self.id, read:false).empty?
+      return Message.where(receiving_user_id: self.id, read: false)
+    else
+      return []
+    end
   end
 end

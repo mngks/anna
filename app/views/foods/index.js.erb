@@ -1,5 +1,4 @@
 var tab_content = document.querySelector('.tab-content');
-tab_content.innerHTML = '';
 
 var listings = document.getElementById('listings');
 listings.classList.add("active");
@@ -8,6 +7,7 @@ var reviews = document.getElementById('reviews');
 reviews.classList.remove("active");
 
 function createNewCard(innerHTML = '') {
+    tab_content.innerHTML = '';
     tab_content.insertAdjacentHTML('beforeend', innerHTML);
 }
 

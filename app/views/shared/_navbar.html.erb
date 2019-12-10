@@ -1,34 +1,27 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
 <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
   <div class="search-form-control form-group">
     <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search" aria-label="Search"/>
   </div>
 </form>
-  <div id="navbarSupportedContent">
-    <ul>
-      <% if user_signed_in? %>
-        <div class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to link_to "User Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Explore", root_path,  class: "dropdown-item" %>
-            <div>
-                     <% if current_user.donor.nil? %>
-                <%= link_to "Create Food", new_donor_path, class: "dropdown-item" %>
-                <% else %>
-                 <%= link_to "Create Food", new_food_path, class: "dropdown-item" %>
-                <% end %>
+
+    <div id="navbarSupportedContent">
+        <ul class="mr-auto">
+            <% if user_signed_in? %>
+            <div class="nav-item dropdown">
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <%= link_to "User Profile", user_path(current_user), class: "dropdown-item"  %>
+                    <%= link_to "Messages", user_donations_path(current_user), class: "dropdown-item" %>
+                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                </div>
             </div>
-            <%= link_to "Messages", user_donations_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </div>
-      <% else %>
-        <div>
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </div>
-      <% end %>
-    </ul>
-  </div>
-    
+            <% else %>
+            <div>
+                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </div>
+            <% end %>
+        </ul>
+    </div>
 </div>

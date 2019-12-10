@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>TODO</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable"  content="yes">  
@@ -14,13 +16,17 @@
     <%= render 'shared/ios_pwa_links' %>
   </head>
   <body>
+
+
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    
-    <%= yield %>
-    <div class="mb-5"></div>
+    <div class="mb-5">
+        <%= yield %>
+    </div>
+    <div class="my-3">       </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-  </body>
+</body>
+
 </html>
