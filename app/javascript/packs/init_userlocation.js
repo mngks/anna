@@ -2,7 +2,7 @@ const haversine = require('haversine')
 
 const initUserLocation = () => {
   navigator.geolocation.getCurrentPosition((position)=>{
-    const userLatitude = position.coords.latitude 
+    const userLatitude = position.coords.latitude
     const userLongitude = position.coords.longitude
     const cards = document.querySelectorAll('.card-hori')
     cards.forEach((card)=>{
