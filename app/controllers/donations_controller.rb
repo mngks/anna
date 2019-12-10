@@ -3,6 +3,8 @@ class DonationsController < ApplicationController
     if params[:user_id]
       @user = User.find(params[:user_id])
      @donations = current_user.donor.donations
+     @requests = current_user.donations
+      @conversations = @requests + (@donations || [])
    end
   end
 
