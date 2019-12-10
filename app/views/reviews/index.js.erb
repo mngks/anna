@@ -9,11 +9,12 @@ reviews.classList.add("active");
 
 
 function createNewReview(innerHTML = '') {
+  tab_content.innerHTML = '';
   tab_content.insertAdjacentHTML('beforeend', innerHTML);
 }
 
-<% if @reviews.any? %>
-  <% @reviews.each do |review| %>
+<% if @user.reviews_received.any? %>
+  <% @user.reviews_received.each do |review| %>
     createNewReview('<%= j render "review", user: @user %>');
   <% end %>
 

@@ -1,3 +1,6 @@
+<div class="form">
+
+<h2> Leave a review </h2>
   <%= simple_form_for([@donation, @review]) do |f| %>
 <%= f.error_notification %>
 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -5,3 +8,6 @@
     <%= f.input :content %>
     <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
+
+
+</div>

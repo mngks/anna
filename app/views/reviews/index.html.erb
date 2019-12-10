@@ -1,8 +1,8 @@
 
 <h2><%= @user.username %>'s Reviews </h2>
-<% if @reviews.any? %>
+<% if @user.reviews_received.any? %>
 
-<% @reviews.each do |review| %>
+<% @user.reviews_received.each do |review| %>
 <%= render "review", user: @user %>
 <% end %>
 <% else %>
