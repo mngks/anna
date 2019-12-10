@@ -12,17 +12,22 @@
     <% @messages.each do |message| %>
       <% if message.content %>
         <% user = User.find(message.user.id) %>
+
       <div id="chat">
       <%= render 'message', message: message %>
       </div>
+
       <% end %>
     <% end %>
   </section>
 
    <div class="form-group">
   <%= simple_form_for [@donation, @message] do |f| %>
+
     <%= f.text_field :content, placeholder: "Your message", class: "form-control"%>
+                 <%= f.hidden_field :user, value: current_user %>
     <%= f.submit "Send Message", class: "btn btn-small" %>
+
   <% end %>
   </div>
 

@@ -1,7 +1,7 @@
-<div class="d-flex justify-content-center flex-row mb-3">
+<div class="d-flex justify-content-center flex-row my-3">
     <img src="<%= cl_image_path @user.photo, height: 300, width: 300, crop: :fill %>" class="user-avatar" style="text-align: center">
 </div>
-<div class="profile-content mb-3">
+<div class="panel-content mb-3">
     <div class="d-flex align-items-center flex-row mb-3 p-0">
         <h2 class="pr-3">
             <%=@user.username  %>
@@ -49,19 +49,19 @@
     </div>
     <% if @user == current_user %>
     <h4>
-        <div class="upcoming-meetings mt-3 mb-3">Food I am about to share</div>
+        <div class="upcoming-meetings mt-3 mb-3">My Upcoming Meetings</div>
     </h4>
     <%= render 'meetings', user: @user %>
     <% end %>
-    <ul class="list-inline tabs-underlined">
+    <ul class="list-inline tabs-underlined mt-4">
         <li>
-            <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active" %>
+            <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active pl-0 ml-0" %>
         </li>
         <li>
             <%= link_to "Reviews", user_reviews_path(@user), remote: true, id: "reviews", class: "tab-underlined" %>
         </li>
     </ul>
-    <div class="tab-content">
+    <div class="tab-content mt-3">
         <% if @user.foods.any? %>
         <%= render 'foods/card', user: @user %>
         <% else %>

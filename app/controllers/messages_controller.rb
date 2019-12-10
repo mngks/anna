@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
         donation: @donation
       )
     )
-    
+
   end
 
   def create
@@ -36,6 +36,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user = current_user
     @message.donation = @donation
+    @message.set_user
 
     if @message.save
       if @donation.food.donor.user == current_user

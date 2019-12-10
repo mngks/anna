@@ -1,9 +1,26 @@
-.profile-content {
-  background-color: white;
-  border-radius: 32px 32px 0px 0px;
-  padding: 32px;
+.food-background {
+    position: absolute;
+    height: 240px;
+    width: 100px;
+    z-index: 1;
+    background-size: contain;
 }
 
-.profile-content .ratings {
-  color: $yellow;
+.panel {
+    background-color: white;
+    box-shadow: 2px 2px 32px rgba(141, 160, 94, 0.25);
+    z-index: 2;
+    position: relative;
+    top: 240px;
+
+}
+
+.panel-content {
+    background-color: white;
+    border-radius: 32px 32px 0px 0px;
+    padding: 16px;
+}
+
+.panel-content .ratings {
+    color: $yellow;
 }
