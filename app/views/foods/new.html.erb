@@ -1,19 +1,25 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h1>Upload a new food</h1>
 
-      
-      <%= simple_form_for @food do |f| %>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
-        <%= f.input :name %>
-        <%= f.input :description, as: :text %>
-        <%= f.input :purchase_date %>
-        <%= f.association :categories, as: :check_boxes, include_blank: false, include_hidden:false %>
+<div class="form">
+    <h1>Upload a new food</h1>
+    <%= simple_form_for @food do |f| %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :name %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :purchase_date %>
+    <label class="control-label check_boxes optional">Categories</label>
+    <div class="form-group">
+        <input type="hidden" name="post[category_ids][]" value="">
+        <div class="category-choices">
+            <% Category.all.each do |category| %>
+            <input class="hidden" type="checkbox" value="<%= category.id %>" name="food[category_ids][]" id="food_category_ids_<%= category.id %>">
+            <label class="category-choice" for="food_category_ids_<%= category.id %>">
+                <%= category.name %>
+            </label>
+            <% end %>
+        </div>
         <%= f.input :location %>
         <%= f.button :submit, class: 'btn btn-primary' %>
-      <% end %>
+        <% end %>
     </div>
-  </div>
 </div>

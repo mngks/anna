@@ -1,11 +1,29 @@
 <% if user_signed_in? %>
-<div class="footer">
-<% unless current_user.donor.nil?  %>
-
-  <%= link_to user_donations_path(current_user), class: "btn btn-primary" do %>
-  
-    Messages <span class="badge badge-info"><%= current_user.donations.count %><% link_to donations_path %></span>
-  <% end %>
-  <% end %>  
+<div class="footer d-flex justify-content-around align-items-center">
+    <div>
+        <%= link_to root_path do %>
+        <i class="fas fa-home"></i>
+        <% end %>
+    </div>
+    <div>
+        <% if current_user.donor.nil? %>
+        <%= link_to new_donor_path do %>
+        <i class="fas fa-plus-circle"></i>
+        <% end %>
+        <% else %>
+        <%= link_to new_food_path, class: "btn btn-primary", id: "create-food" do %>
+        <i class="fas fa-plus-circle"></i>
+        <% end %>
+        <% end %>
+    </div>
+    <div id="messages">
+        <%= link_to user_donations_path(current_user) do %>
+        <i class="fas fa-comment-alt"></i>
+        <div class="message-notification">
+            <%= current_user.unread_messages.count %>
+            <% link_to donations_path %>
+        </div>
+        <% end %>
+    </div>
 </div>
 <% end %>

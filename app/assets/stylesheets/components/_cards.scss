@@ -20,11 +20,11 @@
     overflow: hidden;
     height: 100px;
     background: #FFFFFF;
-    box-shadow: 2px 2px 32px rgba(141, 160, 94, 0.25);
+    box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     text-decoration: none;
 }
 
@@ -52,18 +52,19 @@
 
 .card-hori {
     overflow: hidden;
-    height: 100px;
+    height: 120px;
     background: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     margin: 10px;
     text-decoration: none;
+    border-radius: .3em;
 }
 
 .card-hori img {
     height: 100%;
-    width: 120px;
+    width: 150px;
     object-fit: cover;
     border-radius: .3em;
 }
@@ -82,6 +83,35 @@
     margin-top: 8px;
     text-decoration: none;
 }
+
+.card-message {
+    overflow: hidden;
+    height: 100px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: .3em;
+}
+
+.card-message-infos {
+  margin-left: 15px;
+  font-size: 16px;
+}
+
+.chat-panel {
+  overflow: hidden;
+  height: 80px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  padding: 16px;
+  margin: 20px;
+  border-radius: .5em;
+}
+
 
 .card-content {
     margin-left: 15px;
@@ -105,20 +135,36 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 16px;
+    margin-top: 16px;
 }
 
 .card-vert {
+
     overflow: hidden;
-    background: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    position: relative;
 }
 
-.card-vert>img {
-    height: 136px;
+
+.card-vert img {
+    height: 130px;
     width: 100%;
+    border-radius: 8px;
+    margin-bottom: 18px;
     object-fit: cover;
 }
 
+.card-vert .location {
+    position: absolute;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    right: 7px;
+    top: 100px;
+    width: 108px;
+    padding: 8px;
+    font-size: 14px;
+}
 
 .card-vert h2 {
     font-size: 16px;
@@ -127,8 +173,8 @@
 }
 
 .card-vert p {
-    font-size: 12px;
-    opacity: .7;
+    font-size: 14px;
+    opacity: .9;
     margin: 0;
 }
 
@@ -136,13 +182,6 @@
     text-decoration: none;
     color: #414141;
 }
-
-
-
-
-
-
-
 
 
 .card-food {
@@ -183,4 +222,40 @@
     right: 16px;
     top: -20px;
     width: 40px;
+}
+
+//Chat-Form
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-control {
+  border-radius: .3em;
+  height: 5rem;
+  width: 95%;
+  padding: 16px;
+  margin: 20px;
+}
+
+.form-group input {
+  height: 50px;
+  border: 1px solid #8DA05E;
+  position: center;
+}
+
+.form-group textarea {
+  border: 1px solid #8DA05E;
+}
+
+.btn {
+  color: #8DA05E;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 15px 10px;
+  margin: 20px;
+}
+
+.btn-small {
+  padding: 5px 15px;
+  margin-top: -5px;
 }

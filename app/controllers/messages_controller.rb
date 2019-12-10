@@ -35,6 +35,7 @@ class MessagesController < ApplicationController
     @message.user = current_user
     @message.donation = @donation
     authorize @message
+    @message.set_user
     if @message.save
       if @donation.food.donor.user == current_user
         redirect_to donation_messages_path(@donation)

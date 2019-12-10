@@ -1,9 +1,7 @@
 
 <h2><%= @user.username %>'s Reviews </h2>
-<% if @reviews.any? %>
-
-<% @reviews.each do |review| %>
-<% if policy(Review).index? %>
+<% if @user.reviews_received.any? %>
+<% @user.reviews_received.each do |review| %>
 <%= render "review", user: @user %>
 <% end %>
 <% end %>

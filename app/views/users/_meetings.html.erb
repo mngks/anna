@@ -13,11 +13,11 @@
             </strong>
         </p>
         <p>
-            <%= donation.food.donor.user.username %>
+            <%= link_to "#{donation.food.donor.user.username}", user_path(donation.food.donor) %>
         </p>
         <p>
             <%= link_to "View Chat", donation_messages_path(donation) %> |
-            <%= link_to "Leave a review", new_donation_review_path(donation)  %>
+            <%= link_to "Leave Review", new_donation_review_path(donation)  %>
         </p>
     </div>
 </div>
