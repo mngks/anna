@@ -9,13 +9,25 @@
     justify-content: center
 }
 
-.footer ul {
-    margin: 0;
-    padding: 0;
+.footer a {
+    font-size: 32px;
+    color: white;
 }
 
-.footer li {
-    display: inline;
-    margin: 0;
-    padding: 0;
+#messages {
+    position: relative;
+    align-item: center;
+    text-align: center;
+}
+
+.message-notification {
+    position: absolute;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 16px;
+    font-weight: bold;
+    background: $yellow;
+    top: 0px;
+    right: -10px;
 }
