@@ -1,11 +1,12 @@
 <% if user_signed_in? %>
 <div class="footer">
-<% unless current_user.donor.nil?  %>
-
-  <%= link_to user_donations_path(current_user), class: "btn btn-primary" do %>
-  
-    Messages <span class="badge badge-info"><%= current_user.donations.count %><% link_to donations_path %></span>
-  <% end %>
-  <% end %>  
+    <% unless current_user.donor.nil?  %>
+    <%= link_to user_donations_path(current_user), class: "btn btn-primary" do %>
+    Messages <span class="badge badge-info">
+        <%= current_user.unread_messages.count %>
+        <% link_to donations_path %></span>
+    <% end %>
+    <% end %>
 </div>
 <% end %>
+

@@ -24,6 +24,7 @@
 
   <%= simple_form_for [@donation, @message] do |f| %>
     <%= f.input :content, class: "textarea", placeholder: "Type of message" %>
+    <%= f.hidden_field :user, value: current_user %>
     <%= f.submit %>
   <% end %>
 
