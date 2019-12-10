@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
+    authorize @user
     @upcoming_sharing = @user.donations.where(confirmed: true)
     if @user.donor
       @upcoming_taking = @user.donor.donations.where(confirmed: true)
@@ -11,9 +12,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+     authorize @user
   end
 
   def update
+    authorize @user
     @user.pickup_days = params[:user][:pickup_days]
     if @user.update(user_params)
       redirect_to @user

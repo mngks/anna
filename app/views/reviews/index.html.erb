@@ -3,7 +3,9 @@
 <% if @reviews.any? %>
 
 <% @reviews.each do |review| %>
+<% if policy(Review).index? %>
 <%= render "review", user: @user %>
+<% end %>
 <% end %>
 <% else %>
 <p>No reviews yet </p>"
