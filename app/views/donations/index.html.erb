@@ -26,7 +26,7 @@
                 <%= donation.messages.last.user.username %>
             </p>
             <p>
-                <%= current_user.unread_messages.count %> unread messages </p>
+                <%= donation.messages.where(read: false, receiving_user_id: current_user).count %> unread messages </p>
             <% end %>
             <p>
                 View Chat
