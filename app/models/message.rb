@@ -6,8 +6,9 @@ class Message < ApplicationRecord
   before_validation :set_user
 
   def message_time
-    created_at.strftime("%m/%d/%y at %I:%M %p")
+    created_at.strftime("%m/%d/%y")
   end
+
 
   def set_user
    if self.user == self.donation.user
