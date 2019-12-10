@@ -1,10 +1,11 @@
 <div class="form">
-    <h2> Verify your profile </h2>
-    <p>We require more information to verify your account before you start sharing food</p>
-    <div class="form">
-        <%= simple_form_for @donor do |f| %>
-        <%= f.input :full_name %>
-        <%= f.input :contact_number%>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-        <% end %>
-    </div>
+  <h2> Verify your profile </h2>
+  <p>We require more information to verify your account before you start sharing food</p>
+  <div class="form">
+    <%= simple_form_for @donor do |f| %>
+    <%= f.input :full_name %>
+    <%= f.input :contact_number%>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

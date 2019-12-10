@@ -9,10 +9,8 @@ class MessagesController < ApplicationController
       @food = Food.find(params[:food_id])
       @donation = Donation.where(food: @food, user: current_user).first_or_create
     end
-
-  @message = Message.new
-    @message.user = current_user
-    @message.donation = @donation
+    @message = Message.new(donation: @donation)
+    authorize @message
 
     requester = @donation.user
     donor = @food.donor.user
@@ -31,12 +29,11 @@ class MessagesController < ApplicationController
   def create
     @donation = Donation.find(params[:donation_id])
     @food = @donation.food
-
     @message = Message.new(message_params)
     @message.user = current_user
     @message.donation = @donation
+    authorize @message
     @message.set_user
-
     if @message.save
       if @donation.food.donor.user == current_user
         redirect_to donation_messages_path(@donation)
@@ -48,6 +45,7 @@ class MessagesController < ApplicationController
 
   def new
     @message = @donation.messages.new
+    authorize @message
   end
 
   private

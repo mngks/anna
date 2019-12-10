@@ -9,8 +9,9 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new
     @donation = Donation.find(params[:donation_id])
+    @review = Review.new(donation: @donation)
+    authorize @review
   end
 
   def create
@@ -18,6 +19,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.donation = @donation
     @review.user = current_user
+    authorize @review
     # if current_user == @donation.user
     #   @review.user = @donation.donor.user
     # else
@@ -26,10 +28,10 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to user_path(current_user)
     end
-
   end
 
   private
+  
   def review_params
     params.require(:review).permit(:rating, :content)
   end
