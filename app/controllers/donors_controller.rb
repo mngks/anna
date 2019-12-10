@@ -1,9 +1,10 @@
 class DonorsController < ApplicationController
   def new
+      @donor = Donor.new
+      authorize @donor
     if current_user.donor
       redirect_to new_food_path
     else
-      @donor = Donor.new
       @donor.user = current_user
     end
   end
@@ -11,6 +12,7 @@ class DonorsController < ApplicationController
   def create
     @donor = Donor.new(donor_params)
     @donor.user = current_user
+    authorize @donor
 
     if @donor.save
       redirect_to new_food_path

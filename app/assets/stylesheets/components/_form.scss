@@ -1,35 +1,6 @@
 
-.search-form-control {
-  position: relative;
-  top: 10px;
-}
-
-.search-form-control .btn {
-  position: absolute;
-  top: 5px;
-  bottom: 8px;
-  right: 8px;
-}
-
-.search-form-control .form-control {
-  height: 3rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  border: 2px solid #DB967B;
-  border-radius: .3em;
-  background-color: #EFFCD9;
-}
-
-.search-form-control .form-control:focus {
-  border: 1px solid #1EDD88;
-  outline: none !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.fas {
-  color: #DB967B;
-
 .form {
-    margin: 16px;
+    margin: 20px;
     padding: 24px;
     background-color: white;
     border: 1px solid #928B8B;
@@ -37,26 +8,21 @@
     box-shadow: 0px 4px 4px #8DA05E;
     border-radius: 8px;
 }
-
 .form label {
     font-weight: bold;
 }
-
-.btn-primary {
+.form .btn-primary {
     width: 100%;
 }
-
 .hidden {
     display: none;
 }
-
 .category-choices {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 20px 0;
 }
-
 .category-choice {
     background: #b7b7b7;
     padding: 15px;
@@ -64,13 +30,10 @@
     opacity: .4;
     flex: 0 0 49%;
     text-align: center;
-
-
     &:hover {
         opacity: 1;
         cursor: pointer;
     }
-
     &.active {
         background-color: $dark-green;
         color: white;

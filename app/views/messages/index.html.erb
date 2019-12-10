@@ -1,5 +1,8 @@
 <!-- app/views/messages/index.html.erb -->
-
+<div class="container">  
+  <h1>
+    <%= @food.name %>
+  </h1>
 <div class="card-message">
   <%= cl_image_tag @food.photo, width: 100 %>
   <div class="card-message-infos">
@@ -26,7 +29,7 @@
 
     <%= f.text_field :content, placeholder: "Your message", class: "form-control"%>
                  <%= f.hidden_field :user, value: current_user %>
-    <%= f.submit "Send Message", class: "btn btn-small" %>
+    <%= f.submit "Send Message", class: "btn btn-primary btn-small" %>
 
   <% end %>
   </div>
@@ -45,6 +48,7 @@
         <% end %>
         <% end %>
       <% end %>
+
     </div>
   </div>
 </div>

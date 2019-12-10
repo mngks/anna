@@ -22,6 +22,7 @@ class FoodsController < ApplicationController
     end
 
   def show
+    authorize @food
     @donation = @food.donations.build
     @donation.user = current_user
     @user = @food.donor.user
@@ -43,10 +44,12 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
+    authorize @food
   end
 
   def create
     @food = Food.new(food_params)
+    authorize @food
     @food.donor = current_user.donor
     if @food.save
       @food.categories = []
@@ -61,9 +64,11 @@ class FoodsController < ApplicationController
   end
 
   def edit
+    authorize @food
   end
 
   def update
+    authorize @food
     if @food.update(food_params)
       @food.categories = []
       params[:food][:category_ids].each do |category_id|
@@ -77,6 +82,7 @@ class FoodsController < ApplicationController
   end
 
   def destroy
+    authorize @food
     @food.destroy
     respond_to do |format|
       format.html { redirect_to foods_url, notice: 'Your food item was successfully removed.' }
