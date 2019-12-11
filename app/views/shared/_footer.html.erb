@@ -7,11 +7,11 @@
     </div>
     <div>
         <% if current_user.donor.nil? %>
-        <%= link_to new_donor_path do %>
+        <%= link_to new_donor_path, id: "create-food" do %>
         <i class="fas fa-plus-circle"></i>
         <% end %>
         <% else %>
-        <%= link_to new_food_path, class: "btn btn-primary", id: "create-food" do %>
+        <%= link_to new_food_path, id: "create-food" do %>
         <i class="fas fa-plus-circle"></i>
         <% end %>
         <% end %>

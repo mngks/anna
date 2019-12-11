@@ -20,7 +20,24 @@
             <div>
                 <%= link_to "Login", new_user_session_path, class: "nav-link" %>
             </div>
-            <% end %>
-        </ul>
+        </form>
+        <div id="navbarSupportedContent">
+            <ul class="mb-0">
+                <% if user_signed_in? %>
+                <div class="nav-item dropdown">
+                    <%= cl_image_tag current_user.photo, class: "avatar-sm dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <%= link_to "User Profile", user_path(current_user), class: "dropdown-item"  %>
+                        <%= link_to "Messages", user_donations_path(current_user), class: "dropdown-item" %>
+                        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                    </div>
+                </div>
+                <% else %>
+                <div>
+                    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+                </div>
+                <% end %>
+            </ul>
+        </div>
     </div>
 </div>

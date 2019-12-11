@@ -1,53 +1,50 @@
-<div class="food-background">
-    <%= cl_image_tag @food.photo, height: 230, crop: :fill %>
+<div class="food-background" style="background-image: url(<%= cl_image_path @food.photo%>)">
 </div>
-<div class="panel">
-    <div class="panel-content">
-        <h3>
-            <%= @food.name %>
-        </h3>
-        <%= render 'shared/user-profile', user: @user %>
-        <p>Date of Purchase:
-            <%= @food.purchase_date%>
-        </p>
-        <p>Description:
-            <%= @food.description %>
-        </p>
-        <p>Categories:
-            <% if @food.categories.empty? %>
-            No category set yet
-            <% else %>
-            <% @food.categories.each do |category| %>
-            <%= category.name %>
-            <% end %>
-            <% end %>
-        </p>
-        <p>Preferred Meeting Time:
-            <% if @user.preferred_start_time %>
-            <%= @user.preferred_start_time.strftime("%I:%M %p") %> -
-            <% else %>
-            No preference set yet
-            <% end %>
-            <% if @user.preferred_end_time %>
-            <%= @user.preferred_end_time.strftime("%I:%M %p")  %>
-            <% end %>
-        </p>
-        <p>Preferred Pick-Up Day:
-            <% if @user.pickup_days %>
-            <%= @user.pickup_days.join(", ") %>
-            <% else %>
-            No preferred days set yet
-            <% end %>
-        </p>
-        <p>Preferred Location:</p>
-        <div id="map" style="width: 100%;
+<div class="panel food-panel">
+    <h3>
+        <%= @food.name %>
+    </h3>
+    <%= render 'shared/user-profile', user: @user %>
+    <p>Date of Purchase:
+        <%= @food.purchase_date%>
+    </p>
+    <p>Description:
+        <%= @food.description %>
+    </p>
+    <p>Categories:
+        <% if @food.categories.empty? %>
+        No category set yet
+        <% else %>
+        <% @food.categories.each do |category| %>
+        <%= category.name %>
+        <% end %>
+        <% end %>
+    </p>
+    <p>Preferred Meeting Time:
+        <% if @user.preferred_start_time %>
+        <%= @user.preferred_start_time.strftime("%I:%M %p") %> -
+        <% else %>
+        No preference set yet
+        <% end %>
+        <% if @user.preferred_end_time %>
+        <%= @user.preferred_end_time.strftime("%I:%M %p")  %>
+        <% end %>
+    </p>
+    <p>Preferred Pick-Up Day:
+        <% if @user.pickup_days %>
+        <%= @user.pickup_days.join(", ") %>
+        <% else %>
+        No preferred days set yet
+        <% end %>
+    </p>
+    <p>Preferred Location:</p>
+    <div id="map" style="width: 100%;
         height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-        <div class="d-flex justify-content-around">
-            <% if @user == current_user %>
-            <%= link_to "Edit", edit_food_path, class:"btn btn-primary" %>
-            <% else %>
-            <%= link_to "Chat", food_messages_path(@food), class:"btn btn-primary" %>
-            <% end %>
-        </div>
+    <div class="d-flex justify-content-around">
+        <% if @user == current_user %>
+        <%= link_to "Edit", edit_food_path, class:"btn btn-primary" %>
+        <% else %>
+        <%= link_to "Chat", food_messages_path(@food), class:"btn btn-primary" %>
+        <% end %>
     </div>
 </div>
