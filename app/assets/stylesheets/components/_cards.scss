@@ -101,3 +101,42 @@
 .profile-card h4 a {
     color: $text-dark;
 }
+
+
+.convo-card {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 16px 16px 16px 16px;
+    display: flex;
+    margin-bottom: 8px;
+
+    p {
+        margin: 0px;
+    }
+
+    h4 {
+        font-weight: bold;
+        font-size: 16px;
+        margin: 0px;
+    }
+
+    h6 {
+        font-size: 14px;
+        color: $subtext;
+        margin: 0px;
+    }
+
+    img {
+      flex-grow: 1;
+      margin-right: 16px;
+    }
+
+    .content {
+      flex-grow: 2;
+    }
+
+}
+
+.convo-card h4 a {
+    color: $text-dark;
+}

@@ -5,12 +5,13 @@
     <% @conversations.each do |donation| %>
     <% unless donation.messages.empty?  %>
     <%= link_to donation_messages_path(donation) do %>
-    <div class="card-hori">
-        <div class="card-photo">
-            <%= cl_image_tag donation.food.photo%>
+    <div class="convo-card">
+        <div>
+            <%= cl_image_tag donation.food.donor.user.photo, class: "avatar-sm m-2" %>
         </div>
-        <div class="card-content">
-            <p><strong>
+        <div>
+            <p>
+                <strong>
                     <%= donation.food.name %> by
                     <%= donation.food.donor.user.username %>
                 </strong>
@@ -20,22 +21,24 @@
                 (Unconfirmed)
                 <% end %>
             </p>
-            <% unless donation.messages.empty?  %>
-            <p> Latest message:
+            <p>
+                <% unless donation.messages.empty?  %>
+                Latest message:
                 <%= donation.messages.last.content %> by
                 <%= donation.messages.last.user.username %>
+                <% end %>
             </p>
-            <p>
-                <%= donation.messages.where(read: false, receiving_user_id: current_user).count %> unread messages </p>
-            <% end %>
             <p>
                 View Chat
             </p>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary">
+              <span class="badge badge-light"><%= donation.messages.where(read: false, receiving_user_id: current_user).count %></span> unread
+            </button>
         </div>
     </div>
     <% end %>
     <% end %>
     <% end %>
-</div>
-</div>
 </div>
