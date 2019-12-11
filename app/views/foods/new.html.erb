@@ -1,10 +1,8 @@
 <div class="form">
     <h1>Upload a new food</h1>
-    <label class="file optional" for="food_photo">Phxoto</label>
+    <label class="file optional" for="food_photo">Photo</label>
     <input class="form-control-file file optional" type="file" name="food[photo]" id="food_photo">
     <%= simple_form_for @food do |f| %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
     <%= f.input :name %>
     <%= f.input :description, as: :text %>
     <%= f.input :purchase_date %>
