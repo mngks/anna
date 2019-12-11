@@ -27,10 +27,16 @@ class DonationsController < ApplicationController
 end
 
 def update
+  @message = Message.new
   @donation = Donation.find(params[:id])
-  authorize @donation
-  @donation.update(confirmed: params[:donation][:confirmed])
-  redirect_to donation_messages_path(@donation)
+  @message.donation = @donation
+  @message.content = "Hi there, I have just accepted your request!"
+  @message.user = @donation.food.donor.user
+  if @message.save!
+    authorize @donation
+    @donation.update(confirmed: params[:donation][:confirmed])
+    redirect_to donation_messages_path(@donation)
+  end
 end
 
 end
