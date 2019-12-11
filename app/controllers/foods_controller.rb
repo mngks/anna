@@ -19,7 +19,13 @@ class FoodsController < ApplicationController
         food.categories.exists?(name: params[:category_name])
       end
     end
+
+    if params[:food_name].present?
+      @foods = Food.where("name ILIKE?", "%#{params[:food_name]}%")
+    else
+      @foods = Food.all
     end
+  end
 
   def show
     authorize @food
