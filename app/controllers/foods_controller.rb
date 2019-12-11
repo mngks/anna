@@ -5,9 +5,9 @@ class FoodsController < ApplicationController
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @foods = @user.foods
+      @foods = @user.foods.reverse
     else
-      @foods = Food.all
+      @foods = Food.all.reverse
     end
 
     @categories = Category.all
@@ -21,9 +21,9 @@ class FoodsController < ApplicationController
     end
 
     if params[:food_name].present?
-      @foods = Food.where("name ILIKE?", "%#{params[:food_name]}%")
+      @foods = Food.where("name ILIKE?", "%#{params[:food_name]}%").reverse
     else
-      @foods = Food.all
+      @foods = Food.all.reverse
     end
   end
 

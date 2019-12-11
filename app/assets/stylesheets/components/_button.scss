@@ -4,6 +4,7 @@
     border: 0px;
     border-radius: 8px;
     padding: 8px 24px;
+    font-weight: bold;
 
     &:active {
         background-color: $primary-hover;
@@ -21,6 +22,7 @@
     border-radius: 16px;
     padding: 8px 24px;
     background-color: white;
+    font-weight: bold;
 
     &:active {
         border: 1px solid $primary-hover;

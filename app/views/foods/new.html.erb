@@ -1,11 +1,10 @@
 <div class="form">
     <h2 class="text-center">Share Food</h2>
     <%= simple_form_for @food, html: {multipart: true} do |f| %>
-      <div class="upload-btn-wrapper text-center">
+    <div class="upload-btn-wrapper text-center">
         <button type="submit" class="btn-upload"><i class="fas fa-camera"></i></button>
         <input type="file" name="food[photo]" />
-  </div>
-  
+    </div>
     <%= f.input :name %>
     <%= f.input :description, as: :text %>
     <%= f.input :purchase_date %>
