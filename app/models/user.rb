@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
   serialize :pickup_days
 
-def reviews_received
+  def reviews_received
     Review.where(reviewed_user_id: self.id)
   end
 

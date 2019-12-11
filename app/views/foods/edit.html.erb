@@ -7,9 +7,19 @@
         <%= f.input :name %>
         <%= f.input :description, as: :text %>
         <%= f.input :purchase_date %>
-        <%= f.association :categories, as: :check_boxes, include_blank: false, include_hidden: false %>
-        <%= f.input :location %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-        <% end %>
+        <label class="control-label check_boxes optional">Categories</label>
+        <div class="form-group">
+            <input type="hidden" name="post[category_ids][]" value="">
+            <div class="category-choices">
+                <% Category.all.each do |category| %>
+                <input class="hidden" type="checkbox" value="<%= category.id %>" name="food[category_ids][]" id="food_category_ids_<%= category.id %>">
+                <label class="category-choice" for="food_category_ids_<%= category.id %>">
+                    <%= category.name %>
+                </label>
+                <% end %>
+            </div>
+            <%= f.input :location %>
+            <%= f.button :submit, class: 'btn btn-primary' %>
+            <% end %>
+        </div>
     </div>
-</div>
