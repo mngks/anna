@@ -6,7 +6,7 @@ class Message < ApplicationRecord
   before_validation :set_user
 
   def message_time
-    created_at.strftime("%m/%d/%y")
+    created_at.strftime("%-d/%-m/%y: %H:%M %Z")
   end
 
 

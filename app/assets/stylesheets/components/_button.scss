@@ -16,15 +16,21 @@
 
 .btn-secondary {
     border: 1px solid $primary-color;
+    color: $primary-color;
     box-sizing: border-box;
     border-radius: 16px;
     padding: 8px 24px;
+    background-color: white;
 
     &:active {
         border: 1px solid $primary-hover;
+        color: $primary-hover;
+        background-color: white;
     }
 
     &:hover {
         background-color: $primary-hover;
+        color: $primary-hover;
+        background-color: white;
     }
 }

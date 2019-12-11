@@ -1,10 +1,32 @@
-<div class="chat-panel">
-  <div class="card-content">
-    <strong><%= message.user.username %></strong>
-    <span class="pull-right"><%= message.message_time %></span>
-    <br/>
-    <div class="row-space-2">
-      <%= message.content %>
+<% if message.user == current_user %>
+<div class="message-card" style="float:right;">
+    <div>
+        <h6>
+            <%= message.message_time %>
+        </h6>
+        <p>
+            <%= message.content %>
+        </p>
     </div>
-  </div>
+    <div>
+        <%= cl_image_tag message.user.photo, class:"avatar-sm ml-3" %>
+    </div>
 </div>
+
+
+<% else %>
+<div class="message-card">
+    <div>
+        <%= cl_image_tag message.user.photo, class:"avatar-sm mr-3" %>
+    </div>
+    <div>
+        <h6>
+            <%= message.message_time %>
+        </h6>
+        <p>
+            <%= message.content %>
+        </p>
+    </div>
+</div>
+
+<% end %>
