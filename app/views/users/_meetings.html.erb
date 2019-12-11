@@ -1,19 +1,22 @@
 <% if @events.empty? %>
-  No confirmed meetings yet!
+No confirmed meetings yet!
 <% else %>
 <% @events.each do |donation| %>
 <% if donation.confirmed  %>
-<div class="card-meetings">
-    <div class="card-photo">
-        <%= cl_image_tag donation.food.photo%>
+<div class="profile-card align-items-center justify-content-aroundfr">
+    <div>
+        <% if @user == donation.user %>
+        <%= cl_image_tag donation.food.donor.user.photo, class:"avatar-mid" %>
+        <% else %>
+        <%= cl_image_tag donation.user.photo, class:"avatar-mid" %>
+        <% end %>
     </div>
-    <div class="card-content">
-        <p><strong>
-                <%= donation.food.name %>
-            </strong>
-        </p>
-        <p>
+    <div class="content">
+        <h4>
             <%= link_to "#{donation.food.donor.user.username}", user_path(donation.food.donor) %>
+        </h4>
+        <p>
+            <%= donation.food.name %>
         </p>
         <p>
             <%= link_to "View Chat", donation_messages_path(donation) %> |
@@ -23,5 +26,4 @@
 </div>
 <% end %>
 <% end %>
-
 <% end %>

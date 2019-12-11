@@ -18,3 +18,29 @@ h4 {
 p {
   font-size: 16px;
 }
+
+.btn .btn-primary {
+    background-color: $primary-color;
+    color: white;
+    border: 0px;
+    border-radius: 8px;
+    padding: 8px 24px;
+}
+
+.btn-primary:active {
+  background-color: $primary-hover;
+}
+
+
+.btn .btn-secondary {
+    border: 1px solid $primary-color;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.btn-secondary:active {
+    border: 1px solid $primary-hover;
+    box-sizing: border-box;
+    border-radius: 16px;
+    padding: 8px 24px;
+}
