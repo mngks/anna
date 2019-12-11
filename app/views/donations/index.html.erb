@@ -7,7 +7,7 @@
     <%= link_to donation_messages_path(donation) do %>
     <div class="convo-card">
         <div>
-            <%= cl_image_tag donation.food.donor.user.photo, class: "avatar-sm m-2" %>
+            <%= cl_image_tag donation.food.photo, class: "avatar-sm m-2" %>
         </div>
         <div>
             <p>
@@ -23,18 +23,15 @@
             </p>
             <p>
                 <% unless donation.messages.empty?  %>
-                Latest message:
-                <%= donation.messages.last.content %> by
-                <%= donation.messages.last.user.username %>
+                <strong><%= donation.messages.last.user.username %></strong>
+                <%= donation.messages.last.content %>
+                
                 <% end %>
-            </p>
-            <p>
-                View Chat
             </p>
         </div>
         <div>
-            <button type="button" class="btn btn-primary">
-              <span class="badge badge-light"><%= donation.messages.where(read: false, receiving_user_id: current_user).count %></span> unread
+          <button type="button" class="fas fa-comment-alt d-flex align-items-center">
+              <span class="badge badge-light mx-1"><%= donation.messages.where(read: false, receiving_user_id: current_user).count %></span> 
             </button>
         </div>
     </div>
