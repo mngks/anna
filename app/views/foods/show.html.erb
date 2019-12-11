@@ -4,13 +4,24 @@
     <h3>
         <%= @food.name %>
     </h3>
-    <%= render 'shared/user-profile', user: @user %>
+    <p>
+        <%= @food.description %>
+    </p>
     <p>Date of Purchase:
         <%= @food.purchase_date%>
     </p>
-    <p>Description:
-        <%= @food.description %>
-    </p>
+    <div class="d-flex align-items-center flex-row mb-3">
+        <div class="p-2 ">
+            <img src="<%= cl_image_path @user.photo, height: 300, width: 300, crop: :fill %>" class="avatar-mid">
+        </div>
+        <div class="p-2">
+            <p><strong>
+                    <%= @user.username  %>
+            </p></strong>
+            <p><%= render 'users/ratings', user: @user %></p>
+        </div>
+    </div>
+
     <p>Categories:
         <% if @food.categories.empty? %>
         No category set yet
