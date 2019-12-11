@@ -22,10 +22,9 @@
     </div>
     <% end %>
     <% if @donation.food.donor.user == current_user %>
+    <% if @donation.confirmed %>
+    <% else%>
     <div class="btn btn-secondary mb-3">
-        <% if @donation.confirmed %>
-        confirmed
-        <% else%>
         <%= simple_form_for @donation do |f| %>
         <%= f.hidden_field :confirmed, value:true %>
         <%= f.submit "Accept Request" %>
