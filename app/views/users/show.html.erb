@@ -12,19 +12,9 @@
             <% end %>
         </div>
     </div>
-    <div class="ratings mb-3">
-        <% if @user.avg_rating.zero? %>
-        <% else %>
-        <h4>
-            <% @user.avg_rating.times do %>
-            <i class="fas fa-star"></i>
-            <% end %>
-            <% @user.blank_stars.times do %>
-            <i class="far fa-star"></i>
-        </h4>
-        <% end  %>
-        <% end %>
-    </div>
+    <p>
+        <%= render 'users/ratings', user: @user %>
+    </p>
     <div class="mb-3">
         <%= @user.bio %>
     </div>
