@@ -44,10 +44,13 @@
   border: 2px solid $primary-color;
   color: $primary-color;
   background-color: white;
-  padding: 8px 20px;
-  border-radius: 30%;
-  font-size: 20px;
+  border-radius: 50%;
+  font-size: 32px;
   font-weight: bold;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  
 }
 
 .upload-btn-wrapper input[type=file] {
