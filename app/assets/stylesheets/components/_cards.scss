@@ -16,200 +16,29 @@
     }
 }
 
-.card-meetings {
+
+.big-card {
     overflow: hidden;
-    height: 100px;
-    background: #FFFFFF;
-    box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-    text-decoration: none;
 }
 
-.card-meetings img {
-    height: 100px;
-    width: 100px;
-    object-fit: cover;
-    border-radius: .3em;
-}
-
-.card-meetings h2 {
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.card-meetings p {
-    font-size: 16px;
-    line-height: 1.4;
-    opacity: .7;
-    margin-bottom: 0;
-    margin-top: 8px;
-    text-decoration: none;
-}
-
-.card-hori {
-    overflow: hidden;
-    height: 120px;
-    background: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    text-decoration: none;
-    border-radius: .3em;
-}
-
-.card-hori img {
-    height: 100%;
-    width: 150px;
-    object-fit: cover;
-    border-radius: .3em;
-}
-
-.card-hori h2 {
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.card-hori p {
-    font-size: 12px;
-    line-height: 1.4;
-    opacity: .7;
-    margin-bottom: 0;
-    margin-top: 8px;
-    text-decoration: none;
-}
-
-.card-message {
-    overflow: hidden;
-    height: 100px;
-    background: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    text-decoration: none;
-    border-radius: .3em;
-}
-
-.card-message-infos {
-  margin-left: 15px;
-  font-size: 16px;
-}
-
-.chat-panel {
-  overflow: hidden;
-  height: 80px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  align-items: center;
-  padding: 16px;
-  margin: 20px;
-  border-radius: .5em;
-}
-
-
-.card-content {
-    margin-left: 15px;
-}
-
-.card-hori .card-hori-infos {
-    padding: 16px;
-}
-
-.card-avatar {
-    width: 50%;
-    border-radius: 50%;
-}
-
-.container-header {
-    margin: 20px;
-}
-
-
-.card-vert-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 16px;
-    margin-top: 16px;
-}
-
-.card-vert {
-
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-}
-
-
-.card-vert img {
-    height: 130px;
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 18px;
-    object-fit: cover;
-}
-
-.card-vert .location {
-    position: absolute;
-    background: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    right: 7px;
-    top: 100px;
-    width: 108px;
-    padding: 8px;
-    font-size: 14px;
-}
-
-.card-vert h2 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.card-vert p {
-    font-size: 14px;
-    opacity: .9;
-    margin: 0;
-}
-
-.card-vert a {
-    text-decoration: none;
-    color: #414141;
-}
-
-
-.card-food {
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.card-food img {
+.big-card>img {
     height: 200px;
     width: 100%;
     object-fit: cover;
 }
 
-.card-food h2 {
+.big-card h2 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
 }
 
-.card-food p {
-    font-size: 12px;
-    opacity: .7;
+.big-card p {
+    font-size: 16px;
     margin: 0;
 }
 
-
-.card-food .card-food-infos {
+.big-card .big-card-infos {
     padding: 16px;
     display: flex;
     justify-content: space-between;
@@ -217,45 +46,34 @@
     position: relative;
 }
 
-.card-food-infos .card-food-location {
+.big-card-infos .big-card-location {
     position: absolute;
     right: 16px;
     top: -20px;
     width: 40px;
+    background-color: white;
+    padding: 8px;
+
+    p {
+        font-size: 14px;
+        color: $subtext;
+    }
 }
 
-//Chat-Form
-.form-group {
-  margin-bottom: 25px;
+.profile-card {
+    background: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 16px
 }
 
-.form-control {
-  border-radius: .3em;
-  height: 5rem;
-  width: 95%;
-  padding: 16px;
-  margin: 20px;
+.profile-card h4 {
+font-weight: bold;
+font-size: 16px;
 }
 
-.form-group input {
-  height: 50px;
-  border: 1px solid #8DA05E;
-  position: center;
-}
-
-.form-group textarea {
-  border: 1px solid #8DA05E;
-}
-
-.btn {
-  color: white;
-  border-radius: 5px;
-  font-weight: bold;
-  padding: 15px 10px;
-  margin: 20px;
-}
-
-.btn-small {
-  padding: 5px 15px;
-  margin-top: -5px;
+.profile-card h6 {
+  font-size: 14px;
+  color: $subtext;
 }
