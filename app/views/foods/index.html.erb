@@ -32,7 +32,7 @@
     <div class="big-card-infos">
       <div>
         <h2><%= food.name %></h2>
-        <p><%= food.donor.full_name %></p>
+        <p><%= cl_image_tag food.donor.user.photo, class: "avatar-xs mr-2" %><%= food.donor.full_name %></p>
       </div>
       <div class="big-card-location" data-coordinates="<%= coordinates.to_json %>">
       </div> 
