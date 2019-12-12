@@ -16,9 +16,9 @@
     }
 }
 
-
 .big-card {
     overflow: hidden;
+    padding: 16px;
 }
 
 .big-card>img {
@@ -88,12 +88,12 @@
     }
 
     img {
-      flex-grow: 1;
-      margin-right: 16px;
+        flex-grow: 1;
+        margin-right: 16px;
     }
 
     .content {
-      flex-grow: 2;
+        flex-grow: 2;
     }
 
 }
@@ -103,10 +103,55 @@
 }
 
 
-.convo-card {
+.chat-card {
     background: #FFFFFF;
     border-radius: 8px;
     padding: 16px 16px 16px 16px;
     display: flex;
     margin-bottom: 8px;
+
+    
+    a {
+          text-decoration: none;
+          color: $text-dark;
+      
+    }
+
+    h4 {
+        font-size: 12px;
+        margin: 0px;
+        font-weight: normal;
+    }
+}
+
+
+.product-card {
+  overflow: hidden;
+  height: 80px;
+  background: white;
+  display: flex;
+  align-items: center;
+}
+
+.product-card img {
+  height: 100%;
+  width: 80px;
+  object-fit: cover;
+}
+
+.product-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-card p {
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.product-card .product-card-infos {
+  padding: 16px;
 }

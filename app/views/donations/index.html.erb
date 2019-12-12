@@ -1,41 +1,47 @@
-<div class="container">
-    <div class="container-header">
-        <h2>My conversations</h2>
-    </div>
-    <% @conversations.each do |donation| %>
-    <% unless donation.messages.empty?  %>
-    <%= link_to donation_messages_path(donation) do %>
-    <div class="convo-card">
-        <div>
-            <%= cl_image_tag donation.food.photo, class: "avatar-sm m-2" %>
-        </div>
-        <div>
-            <p>
-                <strong>
-                    <%= donation.food.name %> by
-                    <%= donation.food.donor.user.username %>
-                </strong>
-                <% if donation.confirmed %>
-                (Confirmed)
-                <% else %>
-                (Unconfirmed)
-                <% end %>
-            </p>
-            <p>
-                <% unless donation.messages.empty?  %>
-                <strong><%= donation.messages.last.user.username %></strong>
-                <%= donation.messages.last.content %>
-                
-                <% end %>
-            </p>
-        </div>
-        <div>
-          <button type="button" class="fas fa-comment-alt d-flex align-items-center">
-              <span class="badge badge-light mx-1"><%= donation.messages.where(read: false, receiving_user_id: current_user).count %></span> 
-            </button>
-        </div>
-    </div>
-    <% end %>
-    <% end %>
-    <% end %>
+<div class="container-header">
+    <h2 class="ml-3 mt-3">My Chats</h2>
 </div>
+<% @conversations.each do |donation| %>
+<% unless donation.messages.empty?  %>
+<div class="chat-card d-flex flex-column bd-highlight m-3">
+    <%= link_to donation_messages_path(donation) do %>
+    <div class="d-flex justify-content-between pb-2">
+        <div>
+            <h4>
+                <%= donation.food.donor.user.username %>
+            </h4>
+        </div>
+        <div>
+            <h4>
+                <%= Message.last.message_time %>
+            </h4>
+        </div>
+    </div>
+    <div class="d-flex">
+        <div>
+            <%= cl_image_tag donation.food.photo, class: "food-mid mr-3 mb-3" %>
+        </div>
+        <div>
+            <strong>
+                <%= donation.food.name %></strong>
+            <% if donation.confirmed %>
+            <div class="info-badge primary">Confirmed</div>
+            <% else %>
+            <div class="info-badge secondary">Unconfirmed</div>
+            <% end %>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <% unless donation.messages.empty?  %>
+            <%= donation.messages.last.content %>
+            <% end %>
+        </div>
+        <%unless donation.messages.where(read: false, receiving_user_id: current_user).empty? %>
+          <div class="badge badge-secondary"><%= donation.messages.where(read: false, receiving_user_id: current_user).count %></div>
+        <% end %>
+    </div>
+</div>
+<% end %>
+<% end %>
+<% end %>

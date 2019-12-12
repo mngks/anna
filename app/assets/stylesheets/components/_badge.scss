@@ -1,0 +1,21 @@
+.info-badge {
+
+    border: 0px;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 14px;
+    text-align: center;
+
+    &.primary {
+        background-color: rgba(42, 157, 143, 0.1);
+        color: $primary-color;
+    }
+
+
+
+    &.secondary {
+    background-color: rgba(181, 65, 65, 0.1);
+    color: rgb(181, 65, 65)
+    }
+
+}

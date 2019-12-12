@@ -30,13 +30,17 @@ def update
   @message = Message.new
   @donation = Donation.find(params[:id])
   @message.donation = @donation
-  @message.content = "Hi there, I have just accepted your request!"
-  @message.user = @donation.food.donor.user
-  if @message.save!
-    authorize @donation
-    @donation.update(confirmed: params[:donation][:confirmed])
-    redirect_to donation_messages_path(@donation)
-  end
+  if !@donation.confirmed
+    @message.content = "Hi there, I have just accepted your request!"
+  else
+   @message.content = "Sorry, I have just cancelled your request!"
+ end
+ @message.user = @donation.food.donor.user
+ if @message.save!
+  authorize @donation
+  @donation.update(confirmed: params[:donation][:confirmed])
+  redirect_to donation_messages_path(@donation)
+end
 end
 
 end
