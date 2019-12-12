@@ -119,7 +119,7 @@
         <div class="cards-scrolling-wrapper">
             <% @categories.each do |category| %>
             <%= link_to root_path(category_name: category.name) do %>
-            <div class="card-category" style="color: white; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('<%= cl_image_path category.photo, height: 300, width: 400, crop: :fill %>')">
+            <div class="card-category" style="color: white; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('<%= cl_image_path category.photo %>')">
                 <%= category.name %>
             </div>
             <% end %>
