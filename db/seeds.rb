@@ -25,7 +25,6 @@ User.create(
   preferred_end_time: '8pm',
 )
 
-
 User.create(
   email: 'mike@gmail.com',
   password: 'user123',
@@ -220,6 +219,16 @@ Donation.create!(
   )
 
 Donation.create!(
+  user: User.find_by(username: 'Mandy'),
+  food: Food.last
+  )
+
+Donation.create!(
   user: User.find_by(username: 'George'),
+  food: Food.last
+  )
+
+Donation.create!(
+  user: User.find_by(username: 'Charmaine'),
   food: Food.last
   )
