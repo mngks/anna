@@ -3,6 +3,10 @@ class Review < ApplicationRecord
   belongs_to :user
   has_one :food, through: :donation
   has_one :donor, through: :food
+
+  validates :rating, presence: true
+  validates :content, presence: true
+
   after_validation :set_user
 
   def set_user

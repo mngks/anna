@@ -20,11 +20,13 @@
 
 .big-card {
     overflow: hidden;
+    margin-bottom: 8px;
 
     >img {
         height: 200px;
         width: 100%;
         object-fit: cover;
+        border-radius: 8px;
     }
 
     h2 {
@@ -38,12 +40,6 @@
         margin: 0;
     }
 
-
-    a {
-        text-decoration: none;
-        color: $text-dark;
-    }
-
 }
 
 
@@ -54,6 +50,10 @@
     align-items: flex-end;
     position: relative;
 }
+ .big-card-infos a {
+        text-decoration: none;
+        color: $text-dark;
+    }
 
 .big-card-infos .big-card-location {
     position: absolute;
