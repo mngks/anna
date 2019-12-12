@@ -19,23 +19,30 @@
 .big-card {
     overflow: hidden;
     padding: 16px;
-}
 
-.big-card>img {
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-}
+    >img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
 
-.big-card h2 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-}
+    h2 {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+    }
 
-.big-card p {
-    font-size: 16px;
-    margin: 0;
+    p {
+        font-size: 16px;
+        margin: 0;
+    }
+
+
+    a {
+        text-decoration: none;
+        color: $text-dark;
+    }
+
 }
 
 .big-card .big-card-infos {
@@ -110,11 +117,11 @@
     display: flex;
     margin-bottom: 8px;
 
-    
+
     a {
-          text-decoration: none;
-          color: $text-dark;
-      
+        text-decoration: none;
+        color: $text-dark;
+
     }
 
     h4 {
@@ -126,32 +133,38 @@
 
 
 .product-card {
-  overflow: hidden;
-  height: 80px;
-  background: white;
-  display: flex;
-  align-items: center;
+    overflow: hidden;
+    height: 80px;
+    background: white;
+    display: flex;
+    align-items: center;
 }
 
 .product-card img {
-  height: 100%;
-  width: 80px;
-  object-fit: cover;
+    height: 100%;
+    width: 80px;
+    object-fit: cover;
 }
 
 .product-card h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .product-card p {
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
 }
 
 .product-card .product-card-infos {
+    padding: 16px;
+}
+
+.card-hori {
+  border: 1px solid $border-grey;
+  border-radius: 8px;
   padding: 16px;
 }

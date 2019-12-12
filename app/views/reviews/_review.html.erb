@@ -1,23 +1,24 @@
-
-<% @user.reviews.each do |review| %>
-<div class="card-hori">
+<!-- Test -->
+<% @reviews.each do |review| %>
+<div class="card-hori mb-3">
     <div class="card-content">
-        <div class="ratings">
-            <% if @user.avg_rating.zero? %>
-            <i>No reviews yet</i>
-            <% else %>
+        <div class="d-flex align-items-center mb-2">
+            <div>
+                <%= cl_image_tag review.user.photo, class: "avatar-sm mr-3" %>
+            </div>
+            <p class="mb-0"><strong>
+                <%= review.user.username %>
+            </strong></p>
+        </div>
+        <div class="ratings my-1">
             <% @user.avg_rating.times do %>
             <i class="fas fa-star"></i>
-            <% end %>
+            <% end  %>
             <% @user.blank_stars.times do %>
             <i class="far fa-star"></i>
-            <% end  %>
             <% end %>
         </div>
-        <h2>
-            <%= @user.username %>
-        </h2>
-        <p>
+        <p class="pb-0 mb-0">
             <%= review.content %>
         </p>
     </div>

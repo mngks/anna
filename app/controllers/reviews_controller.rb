@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     if params[:user_id]
       @user = User.find(params[:user_id])
       @reviews = Review.where(reviewed_user_id: @user.id)
+      # byebug
     else
       @reviews = Review.all
     end
