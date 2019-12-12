@@ -1,5 +1,5 @@
 <div class="container-header">
-    <h2>My Chats</h2>
+    <h2 class="ml-3 mt-3">My Chats</h2>
 </div>
 <% @conversations.each do |donation| %>
 <% unless donation.messages.empty?  %>
@@ -25,9 +25,9 @@
             <strong>
                 <%= donation.food.name %></strong>
             <% if donation.confirmed %>
-            <h6><span class="badge badge-info p-2">confirmed</span></h6>
+            <div class="info-badge primary">Confirmed</div>
             <% else %>
-            <h6><span class="badge badge-secondary p-2">unconfirmed</span></h6>
+            <div class="info-badge secondary">Unconfirmed</div>
             <% end %>
         </div>
     </div>
