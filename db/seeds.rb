@@ -39,7 +39,7 @@ User.create(
   password: 'user123',
   password_confirmation: 'user123',
   username: 'Mandy',
-  remote_photo_url: "https://images.unsplash.com/photo-1562003389-902303a38425?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1429&q=80"
+  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1576150651/mandy1_mos32k.jpg"
 )
 
 User.create(
@@ -47,7 +47,7 @@ User.create(
   password: 'user123',
   password_confirmation: 'user123',
   username: 'Anna',
-  remote_photo_url: "https://images.unsplash.com/photo-1548958921-c5c0fe1b307d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1576150801/anna1_ghy2fj.jpg"
 )
 
 User.create(
@@ -55,7 +55,7 @@ User.create(
   password: 'user123',
   password_confirmation: 'user123',
   username: 'George',
-  remote_photo_url: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1576150964/george1_qzrtye.jpg"
 )
 
 
