@@ -13,18 +13,17 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable"  content="yes">  
+    <meta name="mobile-web-app-capable"  content="yes">
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= render 'shared/ios_pwa_links' %>
   </head>
   <body>
 
-
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
 
-    <div class="container">
+    <div class="container container-background">
         <%= yield %>
     </div>
     <%= render 'shared/footer' %>
