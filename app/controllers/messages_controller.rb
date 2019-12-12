@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
         user: donor,
         donation: @donation
       )
-    )
+    ).order(created_at: :asc)
   end
 
   def create
