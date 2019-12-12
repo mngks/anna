@@ -1,24 +1,10 @@
-<% if message.user == current_user %>
-<div class="message-card" style="float:right;">
-    <div>
-        <h6>
-            <%= message.message_time %>
-        </h6>
-        <p>
-            <%= message.content %>
-        </p>
-    </div>
-    <div>
-        <%= cl_image_tag message.user.photo, class:"avatar-sm ml-3" %>
-    </div>
-</div>
-
-
-<% else %>
-<div class="message-card">
-    <div>
+<div class="message-card <%= message.user == current_user ? 'right' : 'left' %>">
+    <% if message.user != current_user %>
+      <div>
         <%= cl_image_tag message.user.photo, class:"avatar-sm mr-3" %>
-    </div>
+      </div>
+    <% end %>
+
     <div>
         <h6>
             <%= message.message_time %>
@@ -27,6 +13,10 @@
             <%= message.content %>
         </p>
     </div>
-</div>
 
-<% end %>
+    <% if message.user == current_user %>
+      <div>
+        <%= cl_image_tag message.user.photo, class:"avatar-sm ml-4" %>
+      </div>
+    <% end %>
+</div>

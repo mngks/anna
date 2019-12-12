@@ -5,7 +5,7 @@
     padding: 16px;
     display: flex;
     margin-bottom: 16px;
-    width: 240px;
+    width: 264px;
 
     p {
         margin: 0px;
@@ -21,6 +21,14 @@
         font-size: 14px;
         color: $subtext;
         margin: 0px;
+    }
+
+    &.left {
+      float:left;
+    }
+
+    &.right {
+      float:right;
     }
 
 }
