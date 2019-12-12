@@ -2,8 +2,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon align-items-center w-100">
     <a href="javascript:history.back()"> <i class="fas fa-chevron-left"></i></a>
     <%= cl_image_tag @food.donor.user.photo, class: "avatar-sm mr-2" %>
-    <p class="mb-0"><strong> Chat with @
-            <%= current_user == @donation.user ? @food.donor.user.username : @donation.user.username %>
+    <p class="mb-0"><strong> Chat with
+            <% if current_user == @donation.user %>
+              <%= link_to user_path(@food.donor.user) do %>
+                @<%= @food.donor.user.username %>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(@food.donor.user) do %>
+                @<%= @donation.user.username %>
+              <% end %>
+            <% end %>
         </strong>
     </p>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,13 +83,8 @@
     <div class="cardform mb-2 mx-2">
         <%= simple_form_for [@donation, @message], html: { class: "input-group", style: "height:56px;" } do |f| %>
         <%= f.hidden_field :user, value: current_user %>
-
-            <%= f.text_field :content, placeholder: "Your message", class: "form-control input-lg" %>
-
+        <%= f.text_field :content, placeholder: "Your message", class: "form-control input-lg" %>
         <%= f.submit "Send", class: "btn btn-primary mb-3 ml-3" %>
         <% end %>
     </div>
-
-
-
 </div>
