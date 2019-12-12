@@ -25,12 +25,12 @@
             <img src="<%= cl_image_path @user.photo, height: 300, width: 300, crop: :fill %>" class="avatar-mid">
         </div>
         <div class="p-2">
-            <p><strong>
+             <strong><%= link_to user_path(@user) do  %>
                     <%= @user.username  %>
-            </p></strong>
-            <p>
+                    <% end %></strong>
+            
                 <%= render 'users/ratings', user: @user %>
-            </p>
+            
         </div>
     </div>
     <p><i class="far fa-clock"></i>
