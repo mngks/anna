@@ -60,6 +60,7 @@ User.create(
 
 
 puts 'create categories'
+
 fruits = Category.create!(
   name: 'Fruits',
   remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/v1576134732/Screenshot_2019-12-12_at_3.10.51_PM_bdfycp.png"
@@ -71,22 +72,19 @@ dairy = Category.create!(
   remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/v1576134537/Screenshot_2019-12-12_at_3.05.44_PM_fscbou.png"
 )
 
-
-grains = Category.create!(
-  name: 'Grains',
-  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/v1576134617/Screenshot_2019-12-12_at_3.03.38_PM_hsaqly.png"
+snacks = Category.create!(
+  name: 'Snacks',
+  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/c_thumb,w_200,g_face/v1576119575/snack2_ch6ycl.jpg"
 )
-
 
 vegetables = Category.create!(
   name: 'Vegetables',
   remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/v1576135447/Screenshot_2019-12-12_at_3.22.14_PM_kfcs7t.png"
 )
 
-
-snacks = Category.create!(
-  name: 'Snacks',
-  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/c_thumb,w_200,g_face/v1576119575/snack2_ch6ycl.jpg"
+grains = Category.create!(
+  name: 'Grains',
+  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/v1576134617/Screenshot_2019-12-12_at_3.03.38_PM_hsaqly.png"
 )
 
 canned_foods = Category.create!(
