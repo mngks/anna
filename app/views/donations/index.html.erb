@@ -38,7 +38,7 @@
             <% end %>
         </div>
         <%if donation.messages.where(read: false, receiving_user_id: current_user).count != 0 %>
-        <div class="badge badge-pill badge-secondary"></div>
+        <div class="badge badge-secondary"><%= donation.messages.where(read: false, receiving_user_id: current_user).count %></div>
         <% end %>
     </div>
 </div>
