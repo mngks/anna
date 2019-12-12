@@ -1,13 +1,15 @@
-<div class="card-vert-grid">
+<div class="big-card-grid">
     <% user.foods.each do |food| %>
     <% unless food.donations.find_by_confirmed(true) %>
-    <div class="card-vert">
+    <div class="big-card">
         <%= cl_image_tag food.photo, height: 300, width: 400, crop: :fill %>
-        <div class="card-vert-infos">
-            <h2>
-                <%= link_to "#{food.name}", food_path(food) %>
-            </h2>
-            <p>
+        <div class="big-card-infos d-flex flex-column bd-highlight mb-3 align-items-start">
+            <div>
+                <h2>
+                    <%= link_to "#{food.name}", food_path(food) %>
+                </h2>
+            </div>
+            <div>
                 <% if user.avg_rating.nil? %>
                 <i>No reviews</i>
                 <% else %>
@@ -15,10 +17,15 @@
                 <%= user.avg_rating.to_f %> (
                 <%= user.reviews_received.count %> reviews )
                 <% end %>
-            </p>
-            <p>
-                <i class="fas fa-map-marker-alt"></i> 0.3km away
-            </p>
+            </div>
+            <div>
+              <% coordinates = [ food.latitude , food.longitude ] %>
+        
+              <div class="big-card-location" data-coordinates="<%= coordinates.to_json %>">
+                
+            </div>
+             
+            </div>
         </div>
     </div>
     <% end %>
