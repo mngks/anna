@@ -16,6 +16,11 @@
     background-repeat: no-repeat;
 }
 
+.illustration {
+    z-index: 4;
+    position: relative;
+    top: 36px;
+}
 
 .home-panel {
     background-color: white;
@@ -28,6 +33,15 @@
     padding: 16px;
 }
 
+.header-text {
+        padding: 4px;
+        padding-left: 8px;
+        font-size: 18px;
+        color: white;
+        background-color: $primary-color;
+
+}
+
 .food-panel {
     position: relative;
     background-color: white;
@@ -37,6 +51,8 @@
     background-color: white;
     border-radius: 32px 32px 0px 0px;
     padding: 16px;
+    height: 100vh;
+    margin-bottom: 0px;
 }
 
 .food-categories {
@@ -66,5 +82,3 @@
 .panel-content .ratings {
     color: $yellow;
 }
-
-

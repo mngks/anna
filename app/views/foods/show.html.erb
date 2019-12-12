@@ -1,6 +1,6 @@
 <div class="food-background" style="background-image: url('<%= cl_image_path @food.photo%>')">
 </div>
-<div class="panel food-panel">
+<div class="food-panel pb-5">
     <div class="food-categories">
         <% if @food.categories.empty? %>
         <% else %>
@@ -25,12 +25,11 @@
             <img src="<%= cl_image_path @user.photo, height: 300, width: 300, crop: :fill %>" class="avatar-mid">
         </div>
         <div class="p-2">
-             <strong><%= link_to user_path(@user) do  %>
-                    <%= @user.username  %>
-                    <% end %></strong>
-            
-                <%= render 'users/ratings', user: @user %>
-            
+            <strong>
+                <%= link_to user_path(@user) do  %>
+                <%= @user.username  %>
+                <% end %></strong>
+            <%= render 'users/ratings', user: @user %>
         </div>
     </div>
     <p><i class="far fa-clock"></i>
@@ -56,7 +55,7 @@
             <% if @user == current_user %>
             <%= link_to "Edit", edit_food_path, class:"btn btn-primary w-100 mt-3" %>
             <% else %>
-            <%= link_to "Chat", food_messages_path(@food), class:"btn btn-primary w-100 mt-3" %>
+            <%= link_to "Chat", food_messages_path(@food), class:"btn btn-primary w-100 my-3" %>
             <% end %>
         </div>
 </div>
