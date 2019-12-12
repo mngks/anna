@@ -7,7 +7,7 @@ class Review < ApplicationRecord
 
   def set_user
      if self.user == self.donation.user
-       self.reviewed_user_id =  self.food.donor.id
+       self.reviewed_user_id =  self.food.donor.user.id
      else
        self.reviewed_user_id = self.donation.user.id
      end
