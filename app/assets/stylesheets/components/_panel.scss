@@ -19,7 +19,7 @@
 .illustration {
     z-index: 4;
     position: relative;
-    top: 36px;
+    top: 32px;
 }
 
 .home-panel {
@@ -34,11 +34,15 @@
 }
 
 .header-text {
-        padding: 4px;
-        padding-left: 8px;
-        font-size: 18px;
-        color: white;
-        background-color: $primary-color;
+    padding: 4px;
+    padding-left: 8px;
+    font-size: 18px;
+    color: white;
+    background-color: #2A9D8F;
+    width: 68%;
+    margin: 0 auto;
+    border-radius: 2px;
+    font-weight: 500;
 
 }
 
