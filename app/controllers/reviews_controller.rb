@@ -26,12 +26,12 @@ class ReviewsController < ApplicationController
     #   @review.user = @donation.user
     # end
     if @review.save
-      redirect_to user_path(current_user)
+      redirect_to user_path(@review.reviewed_user)
     end
   end
 
   private
-  
+
   def review_params
     params.require(:review).permit(:rating, :content)
   end
