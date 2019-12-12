@@ -2,8 +2,11 @@
     <div class="form">
         <h1>Upload a new food</h1>
         <%= simple_form_for @food do |f| %>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
+        <%= simple_form_for @food, html: {multipart: true} do |f| %>
+        <div class="upload-btn-wrapper text-center">
+            <button type="button" class="btn-upload"><i class="fas fa-camera"></i></button>
+            <input type="file" name="food[photo]" />
+        </div>
         <%= f.input :name %>
         <%= f.input :description, as: :text %>
         <%= f.input :purchase_date %>

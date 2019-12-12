@@ -48,7 +48,7 @@
         <% else %>
         No preferred days set yet
         <% end %>
-        <p>Preferred Location:</p>
+        <div class="mb-3"><i class="fas fa-map-marker-alt"></i> Click the map to see where to meet! </div>
         <div id="map" style="width: 100%;
         height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
         <div class="d-flex justify-content-around w-100">
