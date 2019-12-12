@@ -25,6 +25,7 @@
     height: 200px;
     width: 100%;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .big-card h2 {
@@ -36,7 +37,12 @@
 .big-card p {
     font-size: 16px;
     margin: 0;
-}
+} 
+
+.big-card a {
+    text-decoration: none;
+    color: $text-dark;
+} 
 
 .big-card .big-card-infos {
     padding: 16px;

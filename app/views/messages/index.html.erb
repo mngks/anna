@@ -72,13 +72,13 @@
         <% end %>
         <% end %>
     </div>
-    <div class="mb-2 mx-2">
+    <div class="cardform mb-2 mx-2">
         <%= simple_form_for [@donation, @message], html: { class: "input-group", style: "height:56px;" } do |f| %>
         <%= f.hidden_field :user, value: current_user %>
 
             <%= f.text_field :content, placeholder: "Your message", class: "form-control input-lg" %>
 
-        <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+        <%= f.submit "Send", class: "btn btn-primary mb-3 ml-3" %>
         <% end %>
     </div>
 
