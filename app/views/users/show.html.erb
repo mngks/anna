@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center flex-row my-3">
-    <img src="<%= cl_image_path @user.photo, height: 300, width: 300, crop: :fill %>" class="avatar-lg" style="text-align: center">
+    <img src="<%= cl_image_path @user.photo, height: 300, width: 300, crop: :fill %>" class="avatar-lg my-3" style="text-align: center">
 </div>
-<div class="panel-content mb-3">
+<div class="panel-content">
     <div class="d-flex align-items-center flex-row mb-3 p-0">
         <h2 class="pr-3">
             <%=@user.username  %>
@@ -43,7 +43,7 @@
     </h4>
     <%= render 'meetings', user: @user %>
     <% end %>
-    <ul class="list-inline tabs-underlined mt-4">
+    <ul class="list-inline tabs-underlined mt-4 mb-4">
         <li>
             <%= link_to "Listings", user_foods_path(@user), remote: true, id: "listings", class: "tab-underlined active pl-0 ml-0" %>
         </li>

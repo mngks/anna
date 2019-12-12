@@ -1,10 +1,7 @@
 
 <h2><%= @user.username %>'s Reviews </h2>
-<% if @user.reviews_received.any? %>
-<% @user.reviews_received.each do |review| %>
-<%= render "review", user: @user %>
-<% end %>
-<% end %>
+<%= render "review", user: @user, reviews: @reviews %>
+<% if @reviews.any? %>
 <% else %>
-<p>No reviews yet </p>"
+  <p>No reviews yet </p>"
 <% end %>

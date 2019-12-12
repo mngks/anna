@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     if params[:user_id]
       @user = User.find(params[:user_id])
       @reviews = Review.where(reviewed_user_id: @user.id)
+      # byebug
     else
       @reviews = Review.all
     end
@@ -26,12 +27,12 @@ class ReviewsController < ApplicationController
     #   @review.user = @donation.user
     # end
     if @review.save
-      redirect_to user_path(current_user)
+      redirect_to user_path(@review.reviewed_user)
     end
   end
 
   private
-  
+
   def review_params
     params.require(:review).permit(:rating, :content)
   end
