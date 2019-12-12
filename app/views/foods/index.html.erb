@@ -30,7 +30,7 @@
                 <p>
                     <%= cl_image_tag food.donor.user.photo, class: "avatar-xs mr-2" %>
                     <%= food.donor.user.username %>
-                    <%= render 'users/ratings', user: @user %>
+                    <%= render 'users/ratings', user: food.donor.user %>
                 </p>
             </div>
             <div class="big-card-location" data-coordinates="<%= coordinates.to_json %>">
