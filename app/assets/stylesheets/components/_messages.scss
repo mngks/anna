@@ -3,9 +3,9 @@
     border: 1px solid #EBEBEB;
     border-radius: 8px;
     padding: 16px;
-    display: flex;
     margin-bottom: 16px;
-    width: 264px;
+    width: 280px;
+    display:flex;
 
     p {
         margin: 0px;
@@ -23,20 +23,10 @@
         margin: 0px;
     }
 
-    &.left {
-      float:left;
-    }
-
-    &.right {
-      float:right;
-    }
-
 }
 
 .message-card h4 a {
     color: $text-dark;
 }
 
-.message-card .sent {
-    width: 270px;
-}
+

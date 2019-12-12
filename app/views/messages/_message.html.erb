@@ -1,5 +1,6 @@
-<div class="message-card <%= message.user == current_user ? 'right' : 'left' %>">
+<div class="d-flex align-items-center message-card mx-1 <%= message.user == current_user ? 'ml-auto justify-content-between' : 'mr-auto' %>">
     <% if message.user != current_user %>
+
       <div>
         <%= cl_image_tag message.user.photo, class:"avatar-sm mr-3" %>
       </div>
@@ -16,7 +17,7 @@
 
     <% if message.user == current_user %>
       <div>
-        <%= cl_image_tag message.user.photo, class:"avatar-sm ml-4" %>
+        <%= cl_image_tag message.user.photo, class:"avatar-sm ml-3" %>
       </div>
     <% end %>
 </div>

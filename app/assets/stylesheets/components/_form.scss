@@ -41,3 +41,28 @@
         opacity: 1;
     }
 }
+
+.form-inline {
+
+  // Kick in the inline
+    // Inline-block all the things for "inline"
+    .form-group {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+
+    // In navbar-form, allow folks to *not* use `.form-group`
+    .form-control {
+      display: inline-block;
+      width: auto; // Prevent labels from stacking above inputs in `.form-group`
+      vertical-align: middle;
+    }
+    // Input groups need that 100% width though
+    .input-group > .form-control {
+      width: 100%;
+    }
+
+}
+
+
