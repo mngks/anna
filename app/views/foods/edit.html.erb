@@ -1,7 +1,6 @@
 <div class="container">
     <div class="form">
         <h1>Upload a new food</h1>
-        <%= simple_form_for @food do |f| %>
         <%= simple_form_for @food, html: {multipart: true} do |f| %>
         <div class="upload-btn-wrapper text-center">
             <button type="button" class="btn-upload"><i class="fas fa-camera"></i></button>
@@ -23,7 +22,7 @@
             </div>
             <%= f.input :location %>
             <%= f.button :submit, class: 'btn btn-primary' %>
-            <% end %>
+
             <% end %>
         </div>
     </div>
