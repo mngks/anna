@@ -103,10 +103,11 @@ canned_foods = Category.create!(
 
 puts "create donor profile"
 
+
 Donor.create(
-  full_name: 'Charmaine',
-  contact_number: '91234567',
-  user: User.find_by(email:'charmaine@gmail.com')
+  full_name: 'George',
+  contact_number: '82345674',
+  user: User.find_by(email:'george123@gmail.com')
 )
 
 Donor.create(
@@ -122,16 +123,18 @@ Donor.create(
 )
 
 Donor.create(
+  full_name: 'Charmaine',
+  contact_number: '91234567',
+  user: User.find_by(email:'charmaine@gmail.com')
+)
+
+Donor.create(
   full_name: 'Anna',
   contact_number: '82346678',
   user: User.find_by(email:'anna123@gmail.com')
 )
 
-Donor.create(
-  full_name: 'George',
-  contact_number: '82345674',
-  user: User.find_by(email:'george123@gmail.com')
-)
+
 
 puts 'create foods'
 Food.create!(
