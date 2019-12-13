@@ -21,8 +21,8 @@ User.create(
   username: 'Charmaine',
   remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/v1576118625/IMG_9658_d4eefw.jpg",
   bio: 'I love sharing food as the best way to anyone’s heart is through their stomach (;',
-  preferred_start_time: '6pm',
-  preferred_end_time: '8pm',
+  preferred_start_time: '7pm',
+  preferred_end_time: '10pm',
 )
 
 User.create(
@@ -30,7 +30,10 @@ User.create(
   password: 'user123',
   password_confirmation: 'user123',
   username: 'Mike',
-  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/v1576118641/Screenshot_20191211-192104_Tinder-01_qg7ghb.jpg"
+  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/v1576118641/Screenshot_20191211-192104_Tinder-01_qg7ghb.jpg",
+  bio: 'Food is love, food is joy',
+  preferred_start_time: '8pm',
+  preferred_end_time: '10pm',
 )
 
 User.create(
@@ -38,7 +41,10 @@ User.create(
   password: 'user123',
   password_confirmation: 'user123',
   username: 'Mandy',
-  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1576150651/mandy1_mos32k.jpg"
+  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1576150651/mandy1_mos32k.jpg",
+  bio: 'All about that sustainability!',
+  preferred_start_time: '7am',
+  preferred_end_time: '9am',
 )
 
 User.create(
@@ -46,7 +52,7 @@ User.create(
   password: 'user123',
   password_confirmation: 'user123',
   username: 'Anna',
-  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1576150801/anna1_ghy2fj.jpg"
+  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1576150801/anna1_ghy2fj.jpg",
 )
 
 User.create(
@@ -54,7 +60,10 @@ User.create(
   password: 'user123',
   password_confirmation: 'user123',
   username: 'George',
-  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1576150964/george1_qzrtye.jpg"
+  remote_photo_url: "https://res.cloudinary.com/df8xepdmu/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1576150964/george1_qzrtye.jpg",
+  bio: 'Someone new to Singapore looking for free food and new friends',
+  preferred_start_time: '7am',
+  preferred_end_time: '9am',
 )
 
 
@@ -93,10 +102,11 @@ canned_foods = Category.create!(
 
 puts "create donor profile"
 
+
 Donor.create(
-  full_name: 'Charmaine',
-  contact_number: '91234567',
-  user: User.find_by(email:'charmaine@gmail.com')
+  full_name: 'George',
+  contact_number: '82345674',
+  user: User.find_by(email:'george123@gmail.com')
 )
 
 Donor.create(
@@ -112,16 +122,18 @@ Donor.create(
 )
 
 Donor.create(
+  full_name: 'Charmaine',
+  contact_number: '91234567',
+  user: User.find_by(email:'charmaine@gmail.com')
+)
+
+Donor.create(
   full_name: 'Anna',
   contact_number: '82346678',
   user: User.find_by(email:'anna123@gmail.com')
 )
 
-Donor.create(
-  full_name: 'George',
-  contact_number: '82345674',
-  user: User.find_by(email:'george123@gmail.com')
-)
+
 
 puts 'create foods'
 Food.create!(
@@ -160,6 +172,20 @@ Food.create!(
   donor: Donor.find_by(full_name: 'Charmaine'),
   categories: [fruits]
 )
+
+
+Food.create!(
+  name: "Chocolate Biscuits",
+  remote_photo_url: "https://res.cloudinary.com/dz2nopq0w/image/upload/v1576210945/tanaphong-toochinda-_f8S_o9xQK8-unsplash_aq8zhi.jpg",
+  description: "Received it as a christmas gift but not a fan of chocolate",
+  purchase_date: Date.new(2018,12,1),
+  location: "4 Tampines Central 5, Singapore 529510",
+  latitude: 1.3522315,
+  longitude: 103.9449502,
+  donor: Donor.find_by(full_name: 'Charmaine'),
+  categories: [fruits]
+)
+
 
 
 Food.create!(
@@ -211,6 +237,7 @@ Food.create!(
   donor: Donor.find_by(full_name: 'George'),
   categories: [dairy]
 )
+
 
 puts "create donation"
 Donation.create!(
